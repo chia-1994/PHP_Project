@@ -64,7 +64,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">課程管理</a>
             </li>
-            <li class="nav-item ">
+
+            <li class="nav-item">
                 <a class="nav-link <?= $page_name == 'orders' ? 'active' : '' ?>" href="#">訂單管理</a>
             </li>
         </ul>
