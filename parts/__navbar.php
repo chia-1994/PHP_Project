@@ -49,13 +49,13 @@
             <li class="nav-item">
                 <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">廠商管理</a>
             </li>
-            <div class="nav-link dropright <?= $page_name == '##' ? 'active' : '' ?>">
+            <div class="nav-link dropright <?= $page_name == 'list_food' ? 'active' : '' ?>">
                 <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
                     商品管理
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">美妝保養</a>
-                    <a class="dropdown-item" href="#">無毒食品</a>
+                    <a class="dropdown-item" href="list.php">無毒食品</a>
                     <a class="dropdown-item" href="#">無負擔服飾</a>
                     <!-- <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Separated link</a> -->
@@ -64,7 +64,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">課程管理</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link <?= $page_name == 'orders' ? 'active' : '' ?>" href="#">訂單管理</a>
             </li>
         </ul>

@@ -12,5 +12,5 @@ $rows = $stmt->fetchAll();
 <?php require __DIR__ . '/parts/__html_head.php'; ?>
 <?php include __DIR__ . '/parts/__navbar.php'; ?>
 
-<?php include __DIR__ . '/parts/__scripts.php'; ?>
+
 <?php include __DIR__ . '/parts/__html_foot.php'; ?>
