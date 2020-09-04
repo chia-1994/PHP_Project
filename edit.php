@@ -2,6 +2,7 @@
 $page_title = '修改資料';
 $page_name = 'edit';
 // 與資料庫連線
+$referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'list.php';
 require __DIR__ . '/parts/connect.php';
 ?>
 <?php
@@ -26,7 +27,7 @@ if (empty($row)) {
 <?php require __DIR__ . '/parts/__html_head.php'; ?>
 <style>
     .container {
-        margin-left: 250px;
+        margin-left: 500px;
     }
 </style>
 <?php include __DIR__ . '/parts/__navbar.php'; ?>
@@ -145,7 +146,8 @@ if (empty($row)) {
                         //infobar.classList.replace('alert-danger', 'alert-success')
                         // }
                         setTimeout(() => {
-                            location.href = 'list.php';
+
+                            window.history.back();
                         }, 3000)
                     } else {
                         infobar.innerHTML = obj.error || '資料沒有修改';

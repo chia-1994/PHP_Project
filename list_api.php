@@ -2,7 +2,7 @@
 
 require __DIR__ . '/parts/connect.php';
 
-$perPage = 3; // 每頁有幾筆資料
+$perPage = 10; // 每頁有幾筆資料
 // 如果用戶有輸入就跳到用戶輸入的頁數 沒有輸入 就跳到第一頁
 $output = [
     'perPage' => $perPage,
@@ -32,7 +32,7 @@ if ($totalRows > 0) {
     };
     $output['page']  = $page;                           //從0開始 拿五筆
     // sql = 篩選到 全部的資料    第一頁 LIMIT = 1-1*5 拿五筆 =0~5 以此類推
-    $sql = sprintf("SELECT * FROM `shop_list` LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
+    $sql = sprintf("SELECT * FROM `shop_list` ORDER BY sid DESC LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
     //stmt = 拿sql 的 筆數  (ex limit 0,5 從第0筆開始 撈五筆)  
     $stmt = $pdo->query($sql);
     // 把他塞到 rows 裡面 然後 下面利用foreach呈現在表格上

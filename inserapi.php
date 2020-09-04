@@ -7,7 +7,8 @@ $output = [
     'success' => false,
     'postData' => $_POST,
     'code' => 0,
-    'error' => ''
+    'error' => '',
+
 ];
 // 檢查 產品名稱
 if (mb_strlen($_POST['name']) < 2) {

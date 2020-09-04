@@ -9,6 +9,10 @@ require __DIR__ . '/parts/connect.php';
         margin-left: 250px;
         margin-top: 100px;
     }
+
+    .pagination {
+        margin-top: 50px
+    }
 </style>
 <?php include __DIR__ . '/parts/__navbar.php'; ?>
 
@@ -16,15 +20,7 @@ require __DIR__ . '/parts/connect.php';
     <div class="row">
 
 
-        <div class="col d-flex justify-content-center">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
 
-
-                </ul>
-            </nav>
-
-        </div>
     </div>
     <div class="row">
         <table class="table table-striped">
@@ -51,7 +47,15 @@ require __DIR__ . '/parts/connect.php';
             </tbody>
         </table>
     </div>
+    <div class="col d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
 
+
+            </ul>
+        </nav>
+
+    </div>
 
     <?php include __DIR__ . '/parts/__scripts.php'; ?>
     <script>
@@ -124,6 +128,10 @@ require __DIR__ . '/parts/connect.php';
                         tbody.innerHTML = str;
                         // 把str 塞到 tbody裡
                         str = '';
+
+
+
+
                         if (obj.page === 1) {
                             // 如果是在第一頁 按鈕就不能按
                             str += `<li class="page-item  disabled">
@@ -184,14 +192,13 @@ require __DIR__ . '/parts/connect.php';
                     <a class="page-link" href="#${obj.totalPages}">最後一頁</a>
                     </li>`
                         }
-
-
                         document.querySelector('.pagination').innerHTML = str;
                         // 把 str 塞到 class pagination裡
 
                     }
 
                 );
+
         }
     </script>
     <?php include __DIR__ . '/parts/__html_foot.php'; ?>

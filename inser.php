@@ -7,7 +7,7 @@ require __DIR__ . '/parts/connect.php';
 <?php require __DIR__ . '/parts/__html_head.php'; ?>
 <style>
     .container {
-        margin-left: 250px;
+        margin-left: 500px;
     }
 </style>
 <?php include __DIR__ . '/parts/__navbar.php'; ?>
@@ -125,7 +125,7 @@ require __DIR__ . '/parts/connect.php';
                         //infobar.classList.replace('alert-danger', 'alert-success')
                         // }
                         setTimeout(() => {
-                            location.href = 'list.php';
+                            location.href = `list.php`;
                         }, 3000)
                     } else {
                         infobar.innerHTML = obj.error || '新增失敗';
