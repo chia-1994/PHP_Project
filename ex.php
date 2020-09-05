@@ -123,7 +123,11 @@ require __DIR__ . '/parts/connect.php';
                         let str = '';
                         const o = [...obj.rows]
                         for (let i = 0; i < o.length; i++) {
-                            str += tableRowTpl(o[i]);
+                            if (new Date().getTime() > new Date(obj.rows[i].expried).getTime()) {
+                                str += tableRowTpl(o[i]);
+                            }
+
+
                         }
                         tbody.innerHTML = str;
                         // 把str 塞到 tbody裡
@@ -157,7 +161,7 @@ require __DIR__ . '/parts/connect.php';
 
 
 
-                        for (let i = 1; i <= obj.totalPages; i++) {
+                        for (let i = obj.page - 3; i <= obj.page + 3; i++) {
                             // 用for迴圈 把 fetch接收到的page資料 資料 遍歷出來 放入pageItemTpl中
                             if (i < 1) continue;
                             if (i > obj.totalPages) continue;
