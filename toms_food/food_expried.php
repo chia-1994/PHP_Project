@@ -1,9 +1,9 @@
 <?php
 
 $page_name = 'list_food';
-require __DIR__ . '/parts/connect.php';
+require __DIR__ . '../../parts/connect.php';
 ?>
-<?php require __DIR__ . '/parts/__html_head.php'; ?>
+<?php require __DIR__ . '../../parts/__html_head.php'; ?>
 <style>
     .container {
         margin-left: 250px;
@@ -13,8 +13,12 @@ require __DIR__ . '/parts/connect.php';
     .pagination {
         margin-top: 50px
     }
+
+    .ex {
+        color: red
+    }
 </style>
-<?php include __DIR__ . '/parts/__navbar.php'; ?>
+<?php include __DIR__ . '../../parts/__navbar.php'; ?>
 
 <div class="container">
     <div class="row">
@@ -57,7 +61,7 @@ require __DIR__ . '/parts/connect.php';
 
     </div>
 
-    <?php include __DIR__ . '/parts/__scripts.php'; ?>
+    <?php include __DIR__ . '../../parts/__scripts.php'; ?>
     <script>
         const tbody = document.querySelector('tbody')
         let pageData;
@@ -96,7 +100,7 @@ require __DIR__ . '/parts/connect.php';
                     <td>${obj.name}</td>
                     <td>${obj.price}</td>
                     <td>${obj.MD}</td>
-                    <td>${obj.expried}</td>
+                    <td class = "ex">${obj.expried} (商品以過期)</td>
                     <td>${obj.firm}</td>
                     <td><a href="edit.php?sid=${obj.sid}"><i class="fas fa-edit"></i></a></td>
                     </tr>
@@ -114,16 +118,17 @@ require __DIR__ . '/parts/connect.php';
         }
         //   預設值
         function getData(page = 1) {
-            fetch('list_api.php?page=' + page)
+            fetch('food_expried_api.php?page=' + page)
                 .then(r => r.json())
                 .then(obj => {
                         console.log(obj);
                         pageData = obj;
 
                         let str = '';
-                        for (let i of obj.rows) {
-                            // 用for迴圈 把fetch 接收到的rows 資料 遍歷出來 放入tableRowTpl中
-                            str += tableRowTpl(i);
+                        const o = [...obj.rows]
+                        for (let i = 0; i < o.length; i++) {
+
+                            str += tableRowTpl(o[i]);
                         }
                         tbody.innerHTML = str;
                         // 把str 塞到 tbody裡
@@ -201,4 +206,4 @@ require __DIR__ . '/parts/connect.php';
 
         }
     </script>
-    <?php include __DIR__ . '/parts/__html_foot.php'; ?>
+    <?php include __DIR__ . '../../parts/__html_foot.php'; ?>

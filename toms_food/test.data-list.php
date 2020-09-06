@@ -1,7 +1,7 @@
 <?php
 // $page_title = '資料列表';
 // $page_name = 'data-list';
-require __DIR__ . '/parts/connect.php';
+require __DIR__ . '../../parts/connect.php';
 
 $stmt = $pdo->query("SELECT * FROM `orders` WHERE 1");
 
@@ -12,8 +12,8 @@ $page_name = 'orders';
 ?>
 
 
-<?php require __DIR__ . '/parts/__html_head.php'; ?>
-<?php include __DIR__ . '/parts/__navbar.php'; ?>
+<?php require __DIR__ . '../../parts/__html_head.php'; ?>
+<?php include __DIR__ . '../../parts/__navbar.php'; ?>
 <style>
     table {
         margin-left: 250px;
@@ -78,5 +78,5 @@ $page_name = 'orders';
 
 </div>
 </div>
-<?php include __DIR__ . '/parts/__scripts.php'; ?>
-<?php include __DIR__ . '/parts/__html_foot.php'; ?>
+<?php include __DIR__ . '../../parts/__scripts.php'; ?>
+<?php include __DIR__ . '../../parts/__html_foot.php'; ?>

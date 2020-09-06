@@ -2,15 +2,15 @@
 $page_title = '新增資料';
 $page_name = 'inser';
 // 與資料庫連線
-require __DIR__ . '/parts/connect.php';
+require __DIR__ . '../../parts/connect.php';
 ?>
-<?php require __DIR__ . '/parts/__html_head.php'; ?>
+<?php require __DIR__ . '../../parts/__html_head.php'; ?>
 <style>
     .container {
         margin-left: 500px;
     }
 </style>
-<?php include __DIR__ . '/parts/__navbar.php'; ?>
+<?php include __DIR__ . '../../parts/__navbar.php'; ?>
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
@@ -62,7 +62,7 @@ require __DIR__ . '/parts/connect.php';
 
 
 </div>
-<?php include __DIR__ . '/parts/__scripts.php'; ?>
+<?php include __DIR__ . '../../parts/__scripts.php'; ?>
 <script>
     // 列出正規表達式的格式
     // 檢視日期是否正確
@@ -144,4 +144,4 @@ require __DIR__ . '/parts/connect.php';
         }
     }
 </script>
-<?php include __DIR__ . '/parts/__html_foot.php'; ?>
+<?php include __DIR__ . '../../parts/__html_foot.php'; ?>

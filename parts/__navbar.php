@@ -44,7 +44,7 @@
         <ul class="nav flex-column">
 
             <li class="nav-item">
-                <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">會員管理</a>
+                <a class="nav-link <?= $page_name == 'member_list' ? 'active' : '' ?>" href="../members/member_list.php">會員管理</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">廠商管理</a>

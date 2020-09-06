@@ -3,7 +3,7 @@ $page_title = '修改資料';
 $page_name = 'edit';
 // 與資料庫連線
 $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'list.php';
-require __DIR__ . '/parts/connect.php';
+require __DIR__ . '../../parts/connect.php';
 ?>
 <?php
 // 如果有get到sid 就get到的sid 沒有get到就變0
@@ -24,13 +24,13 @@ if (empty($row)) {
 }
 ?>
 
-<?php require __DIR__ . '/parts/__html_head.php'; ?>
+<?php require __DIR__ . '../../parts/__html_head.php'; ?>
 <style>
     .container {
         margin-left: 500px;
     }
 </style>
-<?php include __DIR__ . '/parts/__navbar.php'; ?>
+<?php include __DIR__ . '../../parts/__navbar.php'; ?>
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
@@ -83,7 +83,7 @@ if (empty($row)) {
 
 
 </div>
-<?php include __DIR__ . '/parts/__scripts.php'; ?>
+<?php include __DIR__ . '../../parts/__scripts.php'; ?>
 <script>
     // 列出正規表達式的格式
     // 檢視日期是否正確
@@ -166,4 +166,4 @@ if (empty($row)) {
         }
     }
 </script>
-<?php include __DIR__ . '/parts/__html_foot.php'; ?>
+<?php include __DIR__ . '../../parts/__html_foot.php'; ?>
