@@ -4,12 +4,12 @@ require __DIR__ . '../../parts/connect.php';
 
 $perPage = 10; // 每頁有幾筆資料
 // 如果用戶有輸入就跳到用戶輸入的頁數 沒有輸入 就跳到第一頁
-$search = isset($_GET['search']) ? $_GET['search'] : '';
+$search = isset($_POST['search']) ? $_POST['search'] : '';
 
 $where = ' WHERE ';
 if ($search) {
-    $search2 = $pdo->quote("%$search%");  // avoid SQL injection
-    $where .= " AND (`name` LIKE $search2 OR `firm` LIKE $search2 ) ";
+    // $search2 = $pdo->quote("%$search%");  // avoid SQL injection
+    $where .= " (`name` LIKE $search OR `firm` LIKE $search) ";
 }
 
 
