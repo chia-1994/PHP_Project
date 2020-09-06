@@ -3,7 +3,7 @@ $page_title = '修改資料';
 $page_name = 'edit';
 // 與資料庫連線
 $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'list.php';
-require __DIR__ . '/parts/connect.php';
+require __DIR__ . '../../parts/connect.php';
 ?>
 <?php
 // 如果有get到sid 就get到的sid 沒有get到就變0
