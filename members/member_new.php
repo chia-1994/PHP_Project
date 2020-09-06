@@ -2,7 +2,7 @@
 $page_title = '會員新增';
 $page_name = 'member_new';
 require __DIR__ . '/connect_database.php'; ?>
-<?php require __DIR__ . '../../parts/html_head.php'; ?>
+<?php require __DIR__ . '../../parts/__html_head.php'; ?>
 <style>
     span.red-stars {
         color: red;
@@ -12,11 +12,12 @@ require __DIR__ . '/connect_database.php'; ?>
         color: #CCCCCC;
     }
 </style>
-<?php require __DIR__ . '../../parts/navbar.php'; ?>
+<?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
-<div class="container">
-
-    <div class="row">
+<div class="container mr-5">
+    <button type="button" class="btn btn-info mt-1 <?= $page_name == 'member_list' ? 'active' : '' ?>"><a href="member_list.php">會員列表</a></button>
+    <button type="button" class="btn btn-info mt-1 <?= $page_name == 'member_new' ? 'active' : '' ?>"><a href="member_new.php">新增</a></button>
+    <div class="row mt-2">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">會員註冊</h5>
@@ -110,8 +111,8 @@ require __DIR__ . '/connect_database.php'; ?>
     </div>
 </div>
 
-<?php require __DIR__ . '../../parts/scripts.php'; ?>
-<?php require __DIR__ . '../../parts/script_new_pattern.php'; ?>
+<?php require __DIR__ . '../../parts/__scripts.php'; ?>
+<?php require __DIR__ . '/script_new_pattern.php'; ?>
 
 <script>
     function showpwd() {
@@ -123,4 +124,4 @@ require __DIR__ . '/connect_database.php'; ?>
         }
     }
 </script>
-<?php require __DIR__ . '../../parts/html_foot.php'; ?>
+<?php require __DIR__ . '../../parts/__html_foot.php'; ?>
