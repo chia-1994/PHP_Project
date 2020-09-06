@@ -13,8 +13,14 @@ require __DIR__ . '/parts/connect.php';
     .pagination {
         margin-top: 50px
     }
+
+    i {
+        margin-left: 10px;
+    }
 </style>
 <?php include __DIR__ . '/parts/__navbar.php'; ?>
+
+
 
 <div class="container">
     <div class="row">
@@ -29,7 +35,7 @@ require __DIR__ . '/parts/connect.php';
                 <tr>
 
 
-                    <th scope="col"><a href="inser.php">新增</a></th>
+
                     <th scope="col"><i class="fas fa-trash-alt"></i></th>
                     <th scope="col">#</th>
                     <th scope="col">商品名稱</th>
@@ -37,6 +43,7 @@ require __DIR__ . '/parts/connect.php';
                     <th scope="col">製造日期</th>
                     <th scope="col">使用期限</th>
                     <th scope="col">上架廠商</th>
+                    <th scope="col">編輯</th>
 
 
                 </tr>
@@ -88,7 +95,7 @@ require __DIR__ . '/parts/connect.php';
              
                     <tr>
                      
-                      <td></td>
+                    
                     <td><a href="del.php?sid=${obj.sid}" onclick="ifDel(event)" data-sid="${obj.sid}">
                     <i class="fas fa-trash-alt"></i>
                     </a></td>

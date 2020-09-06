@@ -13,6 +13,10 @@ require __DIR__ . '/parts/connect.php';
     .pagination {
         margin-top: 50px
     }
+
+    .ex {
+        color: red
+    }
 </style>
 <?php include __DIR__ . '/parts/__navbar.php'; ?>
 
@@ -96,7 +100,7 @@ require __DIR__ . '/parts/connect.php';
                     <td>${obj.name}</td>
                     <td>${obj.price}</td>
                     <td>${obj.MD}</td>
-                    <td>${obj.expried}</td>
+                    <td class = "ex">${obj.expried} (商品以過期)</td>
                     <td>${obj.firm}</td>
                     <td><a href="edit.php?sid=${obj.sid}"><i class="fas fa-edit"></i></a></td>
                     </tr>
@@ -114,7 +118,7 @@ require __DIR__ . '/parts/connect.php';
         }
         //   預設值
         function getData(page = 1) {
-            fetch('list_api.php?page=' + page)
+            fetch('food_expried_api.php?page=' + page)
                 .then(r => r.json())
                 .then(obj => {
                         console.log(obj);
@@ -123,11 +127,8 @@ require __DIR__ . '/parts/connect.php';
                         let str = '';
                         const o = [...obj.rows]
                         for (let i = 0; i < o.length; i++) {
-                            if (new Date().getTime() > new Date(obj.rows[i].expried).getTime()) {
-                                str += tableRowTpl(o[i]);
-                            }
 
-
+                            str += tableRowTpl(o[i]);
                         }
                         tbody.innerHTML = str;
                         // 把str 塞到 tbody裡

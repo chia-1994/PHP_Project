@@ -3,6 +3,7 @@
 require __DIR__ . '/parts/connect.php';
 
 // 收到前端網頁的input後 給一個回應
+
 $output = [
     'success' => false,
     'postData' => $_POST,
@@ -18,6 +19,22 @@ if (mb_strlen($_POST['name']) < 2) {
     exit;
 }
 // 檢查 日期格式
+if (strtotime($_POST['MD']) > strtotime($_POST['expried'])) {
+    $output['code'] = 420;
+    $output['error'] = '製造日期比過期時間還晚';
+    echo json_encode($output, JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+if (strtotime($_POST['expried']) > strtotime(time())) {
+    $output['code'] = 420;
+    $output['error'] = '產品以過期';
+    echo json_encode($output, JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+
+
 if (!preg_match('/^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/', $_POST['MD'])) {
     $output['code'] = 420;
     $output['error'] = '日期格式錯誤';

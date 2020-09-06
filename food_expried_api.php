@@ -14,7 +14,7 @@ $output = [
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 // 到shoplist撈資料
 // 塞選過期時間
-$t_sql = "SELECT COUNT(1) FROM `shop_list` WHERE unix_timestamp(expried) > unix_timestamp(now())  ";
+$t_sql = "SELECT COUNT(1) FROM `shop_list` WHERE unix_timestamp(expried) < unix_timestamp(now())  ";
 // 總共有幾筆
 $output['totalRows'] = $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 // 總頁數= 總比數 除以一頁有幾筆
@@ -34,7 +34,7 @@ if ($totalRows > 0) {
     $output['page']  = $page;                           //從0開始 拿五筆
     // sql = 篩選到 全部的資料    第一頁 LIMIT = 1-1*5 拿五筆 =0~5 以此類推
     // 塞選過期時間
-    $sql = sprintf("SELECT * FROM `shop_list` WHERE unix_timestamp(expried) > unix_timestamp(now())  ORDER BY sid DESC LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
+    $sql = sprintf("SELECT * FROM `shop_list` WHERE unix_timestamp(expried) < unix_timestamp(now())  ORDER BY sid DESC LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
     //stmt = 拿sql 的 筆數  (ex limit 0,5 從第0筆開始 撈五筆)  
     $stmt = $pdo->query($sql);
     // 把他塞到 rows 裡面 然後 下面利用foreach呈現在表格上
