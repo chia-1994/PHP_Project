@@ -25,7 +25,7 @@ require __DIR__ . '../../parts/connect.php';
 <div class="container">
     <div class="row">
         <div class="col d-flex">
-            <form class="form-inline " name="form1" onsubmit="search(); return false; novalidate">
+            <form class="form-inline " name="form1" onsubmit="searchKeyword(); return false; novalidate">
                 <input class=" form-control mr-sm-2" type="search" placeholder="Search" id="search" name="search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
@@ -84,7 +84,7 @@ require __DIR__ . '../../parts/connect.php';
 
         window.addEventListener('hashchange', hashHandler)
 
-        hashHandler(); //頁面一進來 直接呼叫 
+        if (<?= !isset($_GET['search']) ?>) hashHandler(); //頁面一進來 直接呼叫 
 
         const pageItemTpl = (obj) => {
             // 設置一個 pageItemTpl 函數 顯示按鈕 
@@ -124,102 +124,105 @@ require __DIR__ . '../../parts/connect.php';
             }
         }
 
-        const fd = new FormData(document.form1);
 
-        function search() {
+
+        function searchKeyword() {
+
+            const fd = new FormData(document.form1);
+
             fetch('list_api1.php', {
-                method: 'POST',
-                body: fd
-            })
-
+                    method: 'POST',
+                    body: fd
+                }).then(r => r.json())
+                .then(obj => {
+                    showDataFromApi(obj)
+                })
         }
 
         function getData() {
             fetch('list_api1.php')
                 .then(r => r.json())
                 .then(obj => {
+                    showDataFromApi(obj);
+                })
+
+        }
 
 
 
-                        let str = '';
-                        const o = [...obj.rows]
-                        for (let i = 0; i < o.length; i++) {
-                            str += tableRowTpl(o[i]);
-                        }
-                        tbody.innerHTML = str;
-                        // 把str 塞到 tbody裡
-                        str = '';
+        function showDataFromApi(obj) {
+            let str = '';
+            const o = [...obj.rows]
+            for (let i = 0; i < o.length; i++) {
+                str += tableRowTpl(o[i]);
+            }
+            tbody.innerHTML = str;
+            // 把str 塞到 tbody裡
+            str = '';
 
 
-
-
-                        if (obj.page === 1) {
-                            // 如果是在第一頁 按鈕就不能按
-                            str += `<li class="page-item  disabled">
+            if (obj.page === 1) {
+                // 如果是在第一頁 按鈕就不能按
+                str += `<li class="page-item  disabled">
                     <a class="page-link" href="#${obj.page}">第一頁</a>
                     </li>`
-                        } else {
-                            str += `<li class="page-item ">
+            } else {
+                str += `<li class="page-item ">
                     <a class="page-link" href="#${obj.page==1}">第一頁</a>
                     </li>`
-                        }
+            }
 
 
-                        if (obj.page === 1) {
-                            // 如果是在第一頁 按鈕就不能按
-                            str += `<li class="page-item  disabled">
+            if (obj.page === 1) {
+                // 如果是在第一頁 按鈕就不能按
+                str += `<li class="page-item  disabled">
                     <a class="page-link" href="#${obj.page-1}">上一頁</a>
                     </li>`
-                        } else {
-                            str += `<li class="page-item ">
+            } else {
+                str += `<li class="page-item ">
                     <a class="page-link" href="#${obj.page-1}">上一頁</a>
                     </li>`
-                        }
+            }
 
 
 
-                        for (let i = 1; i <= obj.totalPages; i++) {
-                            // 用for迴圈 把 fetch接收到的page資料 資料 遍歷出來 放入pageItemTpl中
-                            if (i < 1) continue;
-                            if (i > obj.totalPages) continue;
-                            // 設置一個o 物件 把 page 塞進去  這邊的功能是用來判斷是否 進入active狀態
-                            const o = {
-                                page: i,
-                                active: ''
-                            }
-                            if (obj.page === i) {
-                                o.active = 'active';
-                            }
-                            str += pageItemTpl(o);
-                        }
+            for (let i = 1; i <= obj.totalPages; i++) {
+                // 用for迴圈 把 fetch接收到的page資料 資料 遍歷出來 放入pageItemTpl中
+                if (i < 1) continue;
+                if (i > obj.totalPages) continue;
+                // 設置一個o 物件 把 page 塞進去  這邊的功能是用來判斷是否 進入active狀態
+                const o = {
+                    page: i,
+                    active: ''
+                }
+                if (obj.page === i) {
+                    o.active = 'active';
+                }
+                str += pageItemTpl(o);
+            }
 
-                        if (obj.page === obj.totalPages) {
-                            // 如果是在最後一頁 按鈕就不能按
-                            str += `<li class="page-item  disabled">
+            if (obj.page === obj.totalPages) {
+                // 如果是在最後一頁 按鈕就不能按
+                str += `<li class="page-item  disabled">
                     <a class="page-link" href="#${obj.page}">下一頁</a>
                     </li>`
-                        } else {
-                            str += `<li class="page-item ">
+            } else {
+                str += `<li class="page-item ">
                     <a class="page-link" href="#${obj.page+1}">下一頁</a>
                     </li>`
-                        }
-                        // 如果是在最後一頁 按鈕就不能按
-                        if (obj.page === obj.totalPages) {
-                            str += `<li class="page-item  disabled">
+            }
+            // 如果是在最後一頁 按鈕就不能按
+            if (obj.page === obj.totalPages) {
+                str += `<li class="page-item  disabled">
                     <a class="page-link" href="#${obj.page-1}">最後一頁</a>
                     </li>`
-                        } else {
-                            str += `<li class="page-item ">
+            } else {
+                str += `<li class="page-item ">
                     <a class="page-link" href="#${obj.totalPages}">最後一頁</a>
                     </li>`
-                        }
-                        document.querySelector('.pagination').innerHTML = str;
-                        // 把 str 塞到 class pagination裡
-
-                    }
-
-                );
-
+            }
+            document.querySelector('.pagination').innerHTML = str;
+            // 把 str 塞到 class pagination裡
         }
     </script>
     <?php include __DIR__ . '../../parts/__html_foot.php'; ?>
