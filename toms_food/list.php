@@ -106,6 +106,7 @@ require __DIR__ . '../../parts/connect.php';
                     <td>${obj.expried}</td>
                     <td>${obj.firm}</td>
                     <td><a href="edit.php?sid=${obj.sid}"><i class="fas fa-edit"></i></a></td>
+                    <td><a href="#">買</a></td>
                     </tr>
                 
                 `;
