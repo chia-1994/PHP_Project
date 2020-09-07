@@ -9,7 +9,7 @@ $search = isset($_POST['search']) ? $_POST['search'] : '';
 $where = ' WHERE ';
 if ($search) {
     // $search2 = $pdo->quote("%$search%");  // avoid SQL injection
-    $where .= " (`name` LIKE '%$search%' OR `firm` LIKE '%$search%') ";
+    $where .= " (`name` LIKE %$search% OR `firm` LIKE %$search%) ";
 }
 
 
@@ -23,12 +23,7 @@ $output = [
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 // 到shoplist撈資料
 // 塞選過期時間
-if ($search) {
-    $t_sql = "SELECT COUNT(1) FROM `shop_list` $where ";
-} else {
-    $t_sql = "SELECT COUNT(1) FROM `shop_list` WHERE unix_timestamp(expried) > unix_timestamp(now())  ";
-}
-
+$t_sql = "SELECT COUNT(1) FROM `shop_list` WHERE unix_timestamp(expried) > unix_timestamp(now())  ";
 // 總共有幾筆
 $output['totalRows'] = $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 // 總頁數= 總比數 除以一頁有幾筆

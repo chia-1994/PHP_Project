@@ -137,7 +137,6 @@ require __DIR__ . '../../parts/connect.php';
                 .then(obj => {
                     showDataFromApi(obj)
                 })
-
         }
 
         function getData() {
@@ -153,16 +152,12 @@ require __DIR__ . '../../parts/connect.php';
 
         function showDataFromApi(obj) {
             let str = '';
-
             const o = [...obj.rows]
-
             for (let i = 0; i < o.length; i++) {
                 str += tableRowTpl(o[i]);
             }
-
             tbody.innerHTML = str;
             // 把str 塞到 tbody裡
-
             str = '';
 
 
