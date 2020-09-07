@@ -1,7 +1,7 @@
 <?php
 $page_title = '課程列表';
 $page_name = 'course-data-list';
-require __DIR__ . './parts/__connect_db.php';
+require __DIR__ . './parts/__course_connect_db.php';
 
 $perPage = 10; // 每頁有幾筆資料
 
@@ -32,7 +32,7 @@ if ($totalRows > 0) {
 
 
 <?php require __DIR__ . './parts/__html_head.php'; ?>
-<?php include __DIR__ . './parts/__navbar.php'; ?>
+<?php include __DIR__ . './parts/__course_navbar.php'; ?>
 <style>
     .container {
         width: 85%;

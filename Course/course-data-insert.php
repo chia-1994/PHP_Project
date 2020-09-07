@@ -1,7 +1,7 @@
 <?php
 $page_title = '新增課程';
 $page_name = 'course-data-insert';
-require __DIR__ . '/parts/__connect_db.php';
+require __DIR__ . '/parts/__course_connect_db.php';
 // require __DIR__. '/parts/admin_required.php';
 ?>
 <?php require __DIR__ . '/parts/__html_head.php'; ?>
@@ -19,7 +19,7 @@ require __DIR__ . '/parts/__connect_db.php';
     }
 </style>
 
-<?php include __DIR__ . '/parts/__navbar.php'; ?>
+<?php include __DIR__ . '/parts/__course_navbar.php'; ?>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
