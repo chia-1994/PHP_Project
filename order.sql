@@ -1,2 +1,0 @@
-INSERT INTO `orders`(`orderID`, `orderNumber`, `memberId`, `ship_name`, `ship_phone`, `ship_Address`, `created_at`, `shipStatus`, `paymentMethod`, `paymentStatus`, `paymentDate`, `product_Price`, `ship_Fee`, `shopDiscount`, `totalPrice`, `note`, `updated_at`) 
-VALUES (NULL,'10','3','貓貓','0911111111','106台北市大安區復興南路一段390號2樓',NOW(),'未出貨','信用卡','未付款',NOW(),'200','100','0','300','',NOW())

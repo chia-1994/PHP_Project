@@ -1,9 +1,18 @@
 <?php
 
-require __DIR__ . '/parts/connect.php';
+require __DIR__ . '../../parts/connect.php';
 
 $perPage = 10; // 每頁有幾筆資料
 // 如果用戶有輸入就跳到用戶輸入的頁數 沒有輸入 就跳到第一頁
+$search = isset($_POST['search']) ? $_POST['search'] : '';
+
+$where = ' WHERE ';
+if ($search) {
+    // $search2 = $pdo->quote("%$search%");  // avoid SQL injection
+    $where .= " (`name` LIKE $search OR `firm` LIKE $search) ";
+}
+
+
 $output = [
     'perPage' => $perPage,
     'totalRows' => 0,
@@ -35,8 +44,16 @@ if ($totalRows > 0) {
     // sql = 篩選到 全部的資料    第一頁 LIMIT = 1-1*5 拿五筆 =0~5 以此類推
     // 塞選過期時間
     $sql = sprintf("SELECT * FROM `shop_list` WHERE unix_timestamp(expried) > unix_timestamp(now())  ORDER BY sid DESC LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
-    //stmt = 拿sql 的 筆數  (ex limit 0,5 從第0筆開始 撈五筆)  
-    $stmt = $pdo->query($sql);
+
+    $sql2 = sprintf("SELECT * FROM `shop_list` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
+    //stmt = 拿sql 的 筆數  (ex limit 0,5 從第0筆開始 撈五筆)
+    $stmt = '';
+    if ($search) {
+        $stmt = $pdo->query($sql2);
+    } else {
+        $stmt = $pdo->query($sql);
+    }
+
     // 把他塞到 rows 裡面 然後 下面利用foreach呈現在表格上
     $output['rows'] = $stmt->fetchAll();
 }
