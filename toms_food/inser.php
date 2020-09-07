@@ -6,14 +6,59 @@ require __DIR__ . '../../parts/connect.php';
 ?>
 <?php require __DIR__ . '../../parts/__html_head.php'; ?>
 <style>
-    .container {
-        margin-left: 500px;
+    span.red-stars {
+        color: red;
+    }
+
+    small.error_msg {
+        color: #CCCCCC;
+    }
+
+    button a {
+        color: #FFFFFB;
+    }
+
+    button a:hover {
+        color: #FFFFFB;
+    }
+
+    a .fas {
+        color: #86A697;
+    }
+
+    a .fas:hover {
+        color: #26453D;
+    }
+
+    .btn {
+        background-color: #86A697;
+        color: #fffffb;
+    }
+
+    .btn:hover {
+        background-color: #26453D;
+
+        color: #ffffff;
+    }
+
+    .aa {
+        z-index: -5;
     }
 </style>
 <?php include __DIR__ . '../../parts/__navbar.php'; ?>
 <div class="container">
     <div class="row">
-        <div class="col-lg-6">
+
+        <div class="col-lg-6 ml-5 mt-5 aa">
+            <div class="col mb-5">
+
+                <button type="button" style="background-color:<?= $page_name == 'list_food' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'list_food' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+                    <a href="list.php" style="color:<?= $page_name == 'list_food' ? '#ffffff' : '#86A697' ?>">食品列表</a></button>
+                <button type="button" style="background-color:<?= $page_name == 'inser' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'inser' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+                    <a href="inser.php" style="color:<?= $page_name == 'inser' ? '#ffffff' : '#86A697' ?>">新增</a></button>
+            </div>
             <div id="infobar" class="alert alert-success" role="alert" style="display: none">
                 A simple success alert—check it out!
             </div>

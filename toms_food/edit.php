@@ -32,7 +32,7 @@ if (empty($row)) {
 </style>
 <?php include __DIR__ . '../../parts/__navbar.php'; ?>
 <div class="container">
-    <div class="row">
+    <div class="row" style="">
         <div class="col-lg-6">
             <div id="infobar" class="alert alert-success" role="alert" style="display: none">
                 A simple success alert—check it out!
