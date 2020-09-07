@@ -32,7 +32,7 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
 
 
 
-<?php include __DIR__ . '/parts/__html_head.php' ?>
+<?php include __DIR__ . '/../parts/__html_head.php' ?>
 <style>
     .trashcolor {
         color: #CDC;
@@ -47,9 +47,57 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
     .Paginationcolor {
         color: #CDC;
     }
+
+    .page-item.active .page-link {
+        background-color: #CDC;
+        border-color: #CDC;
+    }
+
+    .nvb-flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .nvb {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        margin: 20px;
+        border: 1px solid #CDC;
+        text-align: center;
+        letter-spacing: 0.3em;
+        background-color: #FFF;
+    }
+    .cc{
+        color: #CDC;
+    }
+    .cc:link{
+        text-decoration: none;
+    }
+    .cc:hover{
+        color: #559955;
+    }
+
+    li.page-item:hover .page-link{
+        color: #559955;
+    }
+
 </style>
-<?php include __DIR__ . '/parts/__navbar.php' ?>
+<?php include __DIR__ . '/../parts/__navbar.php' ?>
 <div class="container">
+    <div class="nvb-flex">
+        <button class="nvb">
+            <a class="cc" href="./clothes-data-list.php">資料列表</a>
+        </button>
+        <button class="nvb">
+            <a class="cc" href="./clothes-data-insert.php">新增資料</a>
+        </button>
+    </div>
     <table class="table table-striped">
         <!-- `sid`, `gender`, `name`, `class`, `color`, `size`, `price`, `vendor`, `added_time` -->
         <thead>
@@ -89,20 +137,20 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
         <div class="col">
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item <?= $page==1 ? 'disabled' :''?>">
+                    <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
                         <a class="page-link" href="?page=<?= $page - 1 ?>">
                             <span aria-hidden="true"><i class="fas fa-arrow-circle-left Paginationcolor"></i></span>
                         </a>
                     </li>
-                    <?php for ($i = $page-2; $i <= $page+2; $i++) :
-                        if($i<1) continue;
-                        if($i>$totalPages) break;
-                        ?>
-                        <li class="page-item <? $i == $page ? 'active' : '' ?>">
+                    <?php for ($i = $page - 2; $i <= $page + 2; $i++) :
+                        if ($i < 1) continue;
+                        if ($i > $totalPages) break;
+                    ?>
+                        <li class="page-item <?= $i == $page ? 'active' : '' ?>">
                             <a class="page-link Paginationcolor" href="?page=<?= $i ?>"><?= $i ?></a>
                         </li>
                     <?php endfor ?>
-                    <li class="page-item  <?= $page==$totalPages ? 'disabled' :''?>">
+                    <li class="page-item  <?= $page == $totalPages ? 'disabled' : '' ?>">
                         <a class="page-link" href="?page=<?= $page + 1 ?>">
                             <span aria-hidden="true"><i class="fas fa-arrow-circle-right Paginationcolor"></i></span>
                         </a>
@@ -113,11 +161,11 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
     </div>
 </div>
 
-<?php include __DIR__ . '/parts/__scripts.php' ?>
+<?php include __DIR__ . '/../parts/__scripts.php' ?>
 <script>
-    function delete_it(sid){
-        if(confirm(`確認刪除編號 ${sid} 的資料?`)){
-            location.href = 'clothes-data-delete.php?sid='+sid;
+    function delete_it(sid) {
+        if (confirm(`確認刪除編號 ${sid} 的資料?`)) {
+            location.href = 'clothes-data-delete.php?sid=' + sid;
         }
     }
 
@@ -141,4 +189,4 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
     //     }
     // })
 </script>
-<?php include __DIR__ . '/parts/__html_foot.php' ?>
+<?php include __DIR__ . '/../parts/__html_foot.php' ?>
