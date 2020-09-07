@@ -3,7 +3,7 @@ $page_title = '資料列表';
 $page_name = 'data-list';
 require __DIR__ . '/parts/__connect_db.php';  //連線到資料庫
 
-$perPage = 6; //每頁有幾筆資料
+$perPage = 10; //每頁有幾筆資料
 
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1; //頁數為整數
 
@@ -44,6 +44,8 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
         cursor: pointer;
     }
 
+
+    /*以下為小專左邊頁面使用CSS*/
     .Paginationcolor {
         color: #CDC;
     }
@@ -55,47 +57,64 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
 
     .nvb-flex {
         display: flex;
-        justify-content: center;
+        justify-content: left;
         align-items: center;
-
     }
 
-    .acolor  {
+    .astyle {    /*整個按鍵*/
         display: flex;
         justify-content: center;
         align-items: center;
         width: 150px;
         height: 40px;
         border-radius: 10px;
-        margin: 20px;
+        margin: 20px 10px 20px 0;
         border: 2px solid #CDC;
         text-align: center;
         letter-spacing: 0.4em;
         background-color: #fff;
         color: #CDC;
+        font-size: 18px;
     }
 
+    .astyle:hover{
+        color: #FFF;
+        background-color: #CDC;
+        text-decoration: none;
+    }
     .page-item:hover .page-link {
         color: #fff;
         background-color: #CDC;
     }
 
-    .acolor:hover{
-        color: #FFF;
-        background-color: #CDC;
-        text-decoration: none;
+    .QAQ{  /*將版面擠出左邊navbar */
+        width: 15%;
+        height: 100%;
     }
+    .concon{  /*剩下的左邊版面*/
+        width: 85%;
+        height: 100vh;
+    }
+    
+    .conconcon{  /*剩下左邊版面的80% 預留左右+置中*/
+        width: 80%;
+        margin: 0 auto;
+    }
+
+
+    /*以上為小專左邊頁面使用CSS*/
 </style>
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
-<div class="container">
-    <div class="nvb-flex">
+<div class="QAQ"></div>
+<div class="concon">
+    <div class="nvb-flex conconcon">
 
-        <a class="acolor" href="./clothes-data-list.php">資料列表</a>
+        <a class="astyle" href="./clothes-data-list.php">資料列表</a>
 
-        <a class="acolor" href="./clothes-data-insert.php">新增資料</a>
+        <a class="astyle" href="./clothes-data-insert.php">新增資料</a>
 
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped conconcon">
         <!-- `sid`, `gender`, `name`, `class`, `color`, `size`, `price`, `vendor`, `added_time` -->
         <thead>
             <tr>
@@ -133,7 +152,7 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
     <div class="row">
         <div class="col">
             <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
+                <ul class="pagination justify-content-center" style="margin-top: 20px">
                     <li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
                         <a class="page-link" href="?page=<?= $page - 1 ?>">
                             <span aria-hidden="true"><i class="fas fa-arrow-circle-left Paginationcolor"></i></span>
