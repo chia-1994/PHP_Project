@@ -68,34 +68,32 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
         height: 40px;
         border-radius: 10px;
         margin: 20px;
-        border: 1px solid #CDC;
+        border: 2px solid #CDC;
         text-align: center;
         letter-spacing: 0.3em;
-        background-color: #FFF;
     }
-    .cc{
+
+    .acolor{
         color: #CDC;
+        /* text-decoration: none; */
     }
-    .cc:link{
+
+    a.acolor:link{
         text-decoration: none;
     }
-    .cc:hover{
-        color: #559955;
+    .nvb:hover{
+        color:#fff;
+        background-color: #CDC;
     }
-
-    li.page-item:hover .page-link{
-        color: #559955;
-    }
-
 </style>
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
 <div class="container">
     <div class="nvb-flex">
         <button class="nvb">
-            <a class="cc" href="./clothes-data-list.php">資料列表</a>
+            <a class="acolor" href="./clothes-data-list.php">資料列表</a>
         </button>
         <button class="nvb">
-            <a class="cc" href="./clothes-data-insert.php">新增資料</a>
+            <a class="acolor" href="./clothes-data-insert.php">新增資料</a>
         </button>
     </div>
     <table class="table table-striped">
