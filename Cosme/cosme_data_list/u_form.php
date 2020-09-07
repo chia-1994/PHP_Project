@@ -115,7 +115,7 @@ $row = $pdo->query($sql)->fetch();
         <div class="container">
             <h2 style="margin-left: 15%; padding: 25px;">修改資料</h2>
             <div class="row form-row">
-                <form name="c_form" onsubmit="checkForm(); return false;">
+                <form name="u_form" onsubmit="checkForm(); return false;">
                     <div class="form-group">
                         <label for="EnterProduct"><span class="redstar">*</span>商品名稱</label>
                         <input type="text" minlength="2" class="form-control" id="product" name="product" value="<?= htmlentities($row['product']) ?>" required>
@@ -145,6 +145,38 @@ $row = $pdo->query($sql)->fetch();
     </div>
 
     <script>
+        function checkForm() {
+            let isPass = true;
+            //            if (){
+            // isPass = false;
+            // }
+            //        }
+
+            if (isPass) {
+                const fd = new FormData(document.u_form);
+                fetch('./parts/data_update_api.php', {
+                        method: 'POST',
+                        body: fd
+                    })
+                    .then(r => r.json())
+                    .then(obj => {
+                        console.log(obj);
+                        if (obj.success) {
+                            alert('修改成功！');
+                            setTimeout(() => {
+                                window.history.back();
+                            }, 2000)
+                        } else {
+                            alert('修改失敗！');
+                            $submit.style.dsplay = 'block';
+                        }
+
+
+                    })
+            } else {
+                $submit.style.display = 'block';
+            }
+        }
 
     </script>
 
