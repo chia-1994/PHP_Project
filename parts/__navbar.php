@@ -35,6 +35,10 @@
         margin-top: 20px;
         justify-content: flex-start;
     }
+
+    .aa {
+        z-index: 9999999;
+    }
 </style>
 <div class="wrapper">
 
@@ -61,7 +65,7 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
                     商品管理
                 </a>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu aa">
                     <a class="dropdown-item" href="#">美妝保養</a>
                     <a class="dropdown-item" href="list.php">無毒食品</a>
                     <a class="dropdown-item" href="#">無負擔服飾</a>

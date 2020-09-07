@@ -7,7 +7,7 @@ require __DIR__ . '/parts/__course_connect_db.php';
 <?php require __DIR__ . '/parts/__html_head.php'; ?>
 <style>
     .container {
-        margin: 100px 400px;
+        margin: 50px 400px;
     }
 
     span.red-stars {
@@ -86,7 +86,16 @@ require __DIR__ . '/parts/__course_connect_db.php';
                             <textarea class=" form-control" name="introduction" id="introduction" cols="30" rows="3" placeholder="請摘要輸入廣宣或新聞稿內容"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <form>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary col-lg-12">送出新增</button>
+                                </div>
+                                <div class="col">
+                                    <button type="submit" class="btn btn-warning col-lg-12"><a href="course-data-list.php" target="_self" style="text-decoration:none;color:black;">取消新增</a></button>
+                                </div>
+                            </div>
+                        </form>
                     </form>
                 </div>
             </div>
