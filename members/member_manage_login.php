@@ -20,6 +20,12 @@ require __DIR__ . '/connect_database.php';
 </style>
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 <div class="container mr-5">
+    <button type="button" style="background-color:<?= $page_name == 'member_list' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_list.php" style="color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
+    <button type="button" style="background-color:<?= $page_name == 'member_login' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_login' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        登入</button>
     <div class="row">
         <div class="col-6">
             <form method="post" name="login_form" onsubmit="checkForm() ;return false;">
@@ -29,7 +35,7 @@ require __DIR__ . '/connect_database.php';
                 </div>
                 <div class="form-group">
                     <label for="password">密碼</label>
-                    <input type="password" class="form-control" id="password" name="password">
+                    <input type="password" class="form-control" id="password" name="pwd">
                 </div>
                 <button type="submit" class="btn btn-primary">登入</button>
             </form>
@@ -41,7 +47,7 @@ require __DIR__ . '/connect_database.php';
 <script>
     function checkForm() {
         const fd = new FormData(document.login_form);
-        fetch('member_login_api.php', {
+        fetch('member_manage_login_api.php', {
                 method: 'POST',
                 body: fd
             })

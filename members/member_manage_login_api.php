@@ -7,10 +7,10 @@ $output = [
     'error' => ''
 ];
 
-$accound = isset($_POST['email']) ? $_POST['email'] : '';
+$accound = isset($_POST['account']) ? $_POST['account'] : '';
 $password = isset($_POST['pwd']) ? $_POST['pwd'] : '';
 
-$sql_str = "SELECT `id`, `email`, `pwd` FROM `members` WHERE `email`=? AND `pwd`=?";
+$sql_str = "SELECT `id`, `account`, `pwd` , `name` FROM `manage` WHERE `account`=? AND `pwd`=?";
 $sql = $pdo->prepare($sql_str);
 $sql->execute([
     $accound,
@@ -18,8 +18,8 @@ $sql->execute([
 ]);
 
 if ($sql->rowCount()) {
-    $output['success'] = true;  //如果有資料(代表登入成功)就變true
-    $_SESSION['members'] = $stmt->fetch();
+    $output['success'] = true;
+    $_SESSION['admin'] = $sql->fetch();
 }
 
 
