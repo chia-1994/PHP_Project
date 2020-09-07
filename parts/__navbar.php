@@ -46,8 +46,16 @@
             <li class="nav-item">
                 <a class="nav-link <?= $page_name == 'member_list' ? 'active' : '' ?>" href="../members/member_list.php">會員管理</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">廠商管理</a>
+            <div class="nav-link dropright <?= $page_name == 'vendor-list' ? 'active' : '' ?>">
+                <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
+                    廠商管理
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../vendor/vendor-list.php">廠商修改</a>
+                    <a class="dropdown-item" href="../vendor/vendor-insert2.php">新增廠商</a>
+
+                </div>
+            </div>
             </li>
             <div class="nav-link dropright <?= $page_name == 'list_food' ? 'active' : '' ?>">
                 <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
