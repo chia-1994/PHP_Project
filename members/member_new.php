@@ -11,14 +11,44 @@ require __DIR__ . '/connect_database.php'; ?>
     small.error_msg {
         color: #CCCCCC;
     }
+
+    button a {
+        color: #FFFFFB;
+    }
+
+    button a:hover {
+        color: #FFFFFB;
+    }
+
+    a .fas {
+        color: #86A697;
+    }
+
+    a .fas:hover {
+        color: #26453D;
+    }
+
+    .btn {
+        background-color: #86A697;
+        color: #fffffb;
+    }
+
+    .btn:hover {
+        background-color: #26453D;
+        color: #ffffff;
+    }
 </style>
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
 <div class="container mr-5">
-    <button type="button" class="btn btn-info mt-1 <?= $page_name == 'member_list' ? 'active' : '' ?>"><a href="member_list.php">會員列表</a></button>
-    <button type="button" class="btn btn-info mt-1 <?= $page_name == 'member_new' ? 'active' : '' ?>"><a href="member_new.php">新增</a></button>
+    <button type="button" style="background-color:<?= $page_name == 'member_list' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_list.php" style="color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
+    <button type="button" style="background-color:<?= $page_name == 'member_new' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_new.php" style="color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>">新增</a></button>
     <div class="row mt-2">
-        <div class="card">
+        <div class="card col-6">
             <div class="card-body">
                 <h5 class="card-title">會員註冊</h5>
                 <form id="member_form" name="member_form" onsubmit="checkForm(); return false;" novalidate>
@@ -101,7 +131,7 @@ require __DIR__ . '/connect_database.php'; ?>
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary">註冊</button>
+                    <button type="submit" class="btn">註冊</button>
                     <div class="row">
                         <div id="infobar" class="alert alert-success" role="alert" style="display: none"></div>
                     </div>

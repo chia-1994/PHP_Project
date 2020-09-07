@@ -5,6 +5,7 @@
 
     .wrapper {
         display: flex;
+
     }
 
     .navbar {
@@ -35,10 +36,6 @@
         margin-top: 20px;
         justify-content: flex-start;
     }
-
-    .aa {
-        z-index: 9999999;
-    }
 </style>
 <div class="wrapper">
 
@@ -50,35 +47,36 @@
             <li class="nav-item">
                 <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">會員管理</a>
             </li>
-            <div class="nav-link dropright <?= $page_name == 'vendor-list' ? 'active' : '' ?>">
-                <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
-                    廠商管理
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="../vendor/vendor-list.php">廠商修改</a>
-                    <a class="dropdown-item" href="../vendor/vendor-insert2.php">新增廠商</a>
-
-                </div>
-            </div>
+            <li class="nav-item">
+                <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">廠商管理</a>
             </li>
-            <div class="nav-link dropright <?= $page_name == 'list_food' ? 'active' : '' ?>">
+
+            <div class="nav-link dropright <?= $page_name == '##' ? 'active' : '' ?>">
                 <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
                     商品管理
                 </a>
-                <div class="dropdown-menu aa">
+                <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">美妝保養</a>
-                    <a class="dropdown-item" href="list.php">無毒食品</a>
+                    <a class="dropdown-item" href="#">無毒食品</a>
                     <a class="dropdown-item" href="#">無負擔服飾</a>
                     <!-- <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Separated link</a> -->
                 </div>
             </div>
-            <li class="nav-item">
-                <a class="nav-link" href="#">課程管理</a>
-            </li>
+
+            <div class="nav-link dropright active">
+                <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
+                    課程管理
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="course-data-list.php">課程列表</a>
+                    <a class="dropdown-item" href="#">會員報名</a>
+                    <a class="dropdown-item" href="#">確認報名</a>
+                </div>
+            </div>
 
             <li class="nav-item">
-                <a class="nav-link <?= $page_name == 'orders' ? 'active' : '' ?>" href="#">訂單管理</a>
+                <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">廠商管理</a>
             </li>
         </ul>
 
