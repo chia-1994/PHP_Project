@@ -1,71 +1,50 @@
 <?php
-$page_title = '修改資料';
-$page_name = 'edit';
+$page_title = '新增資料';
+$page_name = 'inser';
 // 與資料庫連線
-$referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'list.php';
 require __DIR__ . '/parts/connect.php';
 ?>
-<?php
-// 如果有get到sid 就get到的sid 沒有get到就變0
-$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
-// 如果sid是空的就轉回list頁面
-if (empty($sid)) {
-    header('Location: list.php');
-    exit;
-}
-// 
-// MYSQL語法 (這邊的作用是 看你點到哪一個edit
-$sql = " SELECT * FROM shop_list WHERE sid=$sid";
-$row = $pdo->query($sql)->fetch();
-// 如果沒有內容 轉回list頁面
-if (empty($row)) {
-    header('Location: list.php');
-    exit;
-}
-?>
-
-<?php require __DIR__ . '../../parts/__html_head.php'; ?>
+<?php require __DIR__ . '/parts/__html_head.php'; ?>
 <style>
     .container {
         margin-left: 500px;
     }
 </style>
-<?php include __DIR__ . '../../parts/__navbar.php'; ?>
+<?php include __DIR__ . '/parts/__navbar.php'; ?>
 <div class="container">
-    <div class="row" style="">
+    <div class="row">
         <div class="col-lg-6">
             <div id="infobar" class="alert alert-success" role="alert" style="display: none">
                 A simple success alert—check it out!
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">修改資料</h5>
+                    <h5 class="card-title">新增資料</h5>
 
                     <form name="form1" onsubmit="checkForm(); return false; novalidate">
-                        <input type="hidden" name="sid" value="<?= $row['sid'] ?>">
                         <div class="form-group">
                             <label for="name"><span class="red-stars">**</span>產品名稱</label>
-                            <input type="text" class="form-control" id="name" name="name" required value="<?= $row['name'] ?>">
+                            <input type="text" class="form-control" id="name" name="name" required>
                             <small class="form-text error-msg"></small>
                         </div>
                         <div class="form-group">
                             <label for="price"><span class="red-stars">**</span>價格</label>
-                            <input type="int" class="form-control" id="price" name="price" value="<?= $row['price'] ?>">
+                            <input type="int" class="form-control" id="price" name="price">
                             <small class="form-text error-msg"></small>
                         </div>
                         <div class="form-group">
                             <label for="MD"><span class="red-stars">**</span>製造日期</label>
-                            <input type="date" class="form-control" id="MD" name="MD" value="<?= $row['MD'] ?>">
+                            <input type="date" class="form-control" id="MD" name="MD">
                             <small class="form-text error-msg"></small>
                         </div>
                         <div class="form-group">
                             <label for="expried"><span class="red-stars">**</span>使用期限</label>
-                            <input type="date" class="form-control" id="expried" name="expried" value="<?= $row['expried'] ?>">
+                            <input type="date" class="form-control" id="expried" name="expried">
                             <small class="form-text error-msg"></small>
                         </div>
                         <div class="form-group">
                             <label for="firm"><span class="red-stars">**</span>上架廠商</label>
-                            <input type="text" class="form-control" name="firm" id="firm" value="<?= $row['firm'] ?>"></input>
+                            <input type="text" class="form-control" name="firm" id="firm"></input>
                             <small class="form-text error-msg"></small>
                         </div>
 
@@ -83,7 +62,7 @@ if (empty($row)) {
 
 
 </div>
-<?php include __DIR__ . '../../parts/__scripts.php'; ?>
+<?php include __DIR__ . '/parts/__scripts.php'; ?>
 <script>
     // 列出正規表達式的格式
     // 檢視日期是否正確
@@ -133,24 +112,23 @@ if (empty($row)) {
             // 使用formdata把 form做成表單 
             const fd = new FormData(document.form1);
             //把表格送給 inserapi 使用post 方法  body就是要送出的資料 這邊是form1 
-            fetch('edit_api.php', {
+            fetch('inserapi.php', {
                     method: 'POST',
                     body: fd
                 })
                 .then(r => r.json())
                 .then(obj => {
                     if (obj.success) {
-                        infobar.innerHTML = '修改成功';
+                        infobar.innerHTML = '新增成功';
                         infobar.className = "alert alert-success";
                         //if(infobar.classList.contains('alert-danger')){
                         //infobar.classList.replace('alert-danger', 'alert-success')
                         // }
                         setTimeout(() => {
-
-                            window.history.back();
+                            location.href = `list.php`;
                         }, 3000)
                     } else {
-                        infobar.innerHTML = obj.error || '資料沒有修改';
+                        infobar.innerHTML = obj.error || '新增失敗';
                         infobar.className = "alert alert-danger";
                         // if(infobar.classList.contains('alert-success')){
                         //     infobar.classList.replace('alert-success', 'alert-danger')
@@ -166,4 +144,4 @@ if (empty($row)) {
         }
     }
 </script>
-<?php include __DIR__ . '../../parts/__html_foot.php'; ?>
+<?php include __DIR__ . '/parts/__html_foot.php'; ?>

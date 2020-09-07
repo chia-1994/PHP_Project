@@ -7,7 +7,7 @@ require __DIR__ . '/parts/__connect_db.php';
 
 
 
-<?php include __DIR__ . '/parts/__html_head.php' ?>
+<?php include __DIR__ . '/../parts/__html_head.php' ?>
 <style>
     .errorpointer {
         color: red;
@@ -21,7 +21,7 @@ require __DIR__ . '/parts/__connect_db.php';
         height: 41px;
     }
 </style>
-<?php include __DIR__ . '/parts/__navbar.php' ?>
+<?php include __DIR__ . '/../parts/__navbar.php' ?>
 <!-- `sid`, `gender`, `name`, `class`, `color`, `size`, `price`, `vendor`, `added_time` -->
 <!-- novalidate 此表單不做檢查   required 此欄必填 -->
 <div class="container">
@@ -85,7 +85,7 @@ require __DIR__ . '/parts/__connect_db.php';
         </div>
     </div>
 </div>
-<?php include __DIR__ . '/parts/__scripts.php' ?>
+<?php include __DIR__ . '/../parts/__scripts.php' ?>
 <script>
     //所有必填的欄位
     const $gender = document.querySelector('#gender')
@@ -144,4 +144,4 @@ require __DIR__ . '/parts/__connect_db.php';
         }
     }
 </script>
-<?php include __DIR__ . '/parts/__html_foot.php' ?>
+<?php include __DIR__ . '/../parts/__html_foot.php' ?>

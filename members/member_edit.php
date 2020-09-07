@@ -26,12 +26,29 @@ if (empty($row)) {
     small.error_msg {
         color: #CCCCCC;
     }
+
+    .btn {
+        background-color: #86A697;
+        color: #fffffb;
+    }
+
+    .btn:hover {
+        background-color: #26453D;
+        color: #ffffff;
+    }
 </style>
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
 <div class="container mr-5">
-    <button type="button" class="btn btn-info mt-1 <?= $page_name == 'member_list' ? 'active' : '' ?>"><a href="member_list.php">會員列表</a></button>
-    <button type="button" class="btn btn-info mt-1 <?= $page_name == 'member_new' ? 'active' : '' ?>"><a href="member_new.php">新增</a></button>
+    <button type="button" style="background-color:<?= $page_name == 'member_list' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_list.php" style="color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
+    <button type="button" style="background-color:<?= $page_name == 'member_new' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_new.php" style="color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>">新增</a></button>
+    <button type="button" style="background-color:<?= $page_name == 'member_edit' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_edit' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="#"" style=" color:<?= $page_name == 'member_edit' ? '#ffffff' : '#86A697' ?>">編輯</a></button>
     <div class="row mt-2">
         <div class="card">
             <div class="card-body">
@@ -113,7 +130,7 @@ if (empty($row)) {
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary">更新</button>
+                    <button type="submit" class="btn">更新</button>
                     <div class="row">
                         <div id="infobar" class="alert alert-success" role="alert" style="display: none"></div>
                     </div>
