@@ -70,7 +70,7 @@
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="course-data-list.php">課程列表</a>
-                    <a class="dropdown-item" href="#">會員訂單</a>
+                    <a class="dropdown-item" href="#">會員報名</a>
                     <a class="dropdown-item" href="#">確認報名</a>
                 </div>
             </div>
