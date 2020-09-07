@@ -35,9 +35,8 @@ if ($totalRows > 0) {
 <?php include __DIR__ . './parts/__course_navbar.php'; ?>
 <style>
     .container {
-        width: 85%;
-        float: right;
-        margin: 0 1vm 0 15vm;
+        width: 1400px;
+        margin: 0 10vm;
     }
 
     .row {
@@ -45,12 +44,13 @@ if ($totalRows > 0) {
     }
 
     .creat_course {
-        margin-left: 4rem;
+        margin-left: 2rem;
         font-size: 18px;
         padding-top: 30px;
     }
 
     .col.d-flex.justify-content-end {
+        width: 1200px;
         font-size: 14px;
         padding-top: 30px;
     }
@@ -58,10 +58,7 @@ if ($totalRows > 0) {
     .table {
         table-layout: fixed;
         min-width: 1920px;
-        margin-left: 2rem;
         font-size: 14px;
-        margin-top: 2rem;
-        margin-right: 1rem;
     }
 
     th {
