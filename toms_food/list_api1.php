@@ -9,7 +9,7 @@ $search = isset($_POST['search']) ? $_POST['search'] : '';
 $where = ' WHERE ';
 if ($search) {
     // $search2 = $pdo->quote("%$search%");  // avoid SQL injection
-    $where .= " (`name` LIKE $search OR `firm` LIKE $search) ";
+    $where .= " (`name` LIKE %$search% OR `firm` LIKE %$search%) ";
 }
 
 
