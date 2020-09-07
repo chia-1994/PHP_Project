@@ -4,12 +4,12 @@ require __DIR__ . '../../parts/connect.php';
 
 $perPage = 10; // 每頁有幾筆資料
 // 如果用戶有輸入就跳到用戶輸入的頁數 沒有輸入 就跳到第一頁
-$search = isset($_GET['search']) ? $_GET['search'] : '';
+$search = isset($_POST['search']) ? $_POST['search'] : '';
 
 $where = ' WHERE ';
 if ($search) {
-    $search2 = $pdo->quote("%$search%");  // avoid SQL injection
-    $where .= " AND (`name` LIKE $search2 OR `firm` LIKE $search2 ) ";
+    // $search2 = $pdo->quote("%$search%");  // avoid SQL injection
+    $where .= " (`name` LIKE '%$search%' OR `firm` LIKE '%$search%') ";
 }
 
 
@@ -23,7 +23,12 @@ $output = [
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 // 到shoplist撈資料
 // 塞選過期時間
-$t_sql = "SELECT COUNT(1) FROM `shop_list` WHERE unix_timestamp(expried) > unix_timestamp(now())  ";
+if ($search) {
+    $t_sql = "SELECT COUNT(1) FROM `shop_list` $where ";
+} else {
+    $t_sql = "SELECT COUNT(1) FROM `shop_list` WHERE unix_timestamp(expried) > unix_timestamp(now())  ";
+}
+
 // 總共有幾筆
 $output['totalRows'] = $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 // 總頁數= 總比數 除以一頁有幾筆
