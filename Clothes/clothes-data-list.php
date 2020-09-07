@@ -53,14 +53,14 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
         border-color: #CDC;
     }
 
-    .nvb-flex{
+    .nvb-flex {
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
     }
 
-    .nvb {
+    .acolor  {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -70,31 +70,30 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
         margin: 20px;
         border: 2px solid #CDC;
         text-align: center;
-        letter-spacing: 0.3em;
-    }
-
-    .acolor{
+        letter-spacing: 0.4em;
+        background-color: #fff;
         color: #CDC;
-        /* text-decoration: none; */
     }
 
-    a.acolor:link{
-        text-decoration: none;
-    }
-    .nvb:hover{
-        color:#fff;
+    .page-item:hover .page-link {
+        color: #fff;
         background-color: #CDC;
+    }
+
+    .acolor:hover{
+        color: #FFF;
+        background-color: #CDC;
+        text-decoration: none;
     }
 </style>
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
 <div class="container">
     <div class="nvb-flex">
-        <button class="nvb">
-            <a class="acolor" href="./clothes-data-list.php">資料列表</a>
-        </button>
-        <button class="nvb">
-            <a class="acolor" href="./clothes-data-insert.php">新增資料</a>
-        </button>
+
+        <a class="acolor" href="./clothes-data-list.php">資料列表</a>
+
+        <a class="acolor" href="./clothes-data-insert.php">新增資料</a>
+
     </div>
     <table class="table table-striped">
         <!-- `sid`, `gender`, `name`, `class`, `color`, `size`, `price`, `vendor`, `added_time` -->
@@ -166,7 +165,6 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
             location.href = 'clothes-data-delete.php?sid=' + sid;
         }
     }
-
 
 
 
