@@ -1,68 +1,52 @@
 <?php
 
-$page_name = 'list_food';
-require __DIR__ . '../../parts/connect.php';
+$page_name = 'vendor-list';
+require __DIR__ . '/connect_db.php';
 ?>
 <?php require __DIR__ . '../../parts/__html_head.php'; ?>
-<style>
-    .container {
-        margin-left: 250px;
-        margin-top: 100px;
-    }
-
-    s .pagination {
-        margin-top: 50px
-    }
-
-    i {
-        margin-left: 10px;
-    }
-</style>
 <?php include __DIR__ . '../../parts/__navbar.php'; ?>
 
+    <div class="container">
+
+<!--        <button type="button" style="background-color: #26453D" class="btn btn-info mt-1 --><?//= $page_name == 'vendor-list' ? 'active' : '' ?><!--"><a href="vendor-list.php">廠商列表</a></button>-->
+<!--        <button type="button" class="btn btn-info mt-1 --><?//= $page_name == 'vendor-insert2' ? 'active' : '' ?><!--"><a href="vendor-insert2.php">加入廠商</a></button>-->
 
 
-<div class="container">
-    <div class="row">
 
-
-
-    </div>
-    <div class="row">
+    <div class="row" style="padding-left: 100px;">
         <table class="table table-striped">
 
             <thead>
-                <tr>
-
-
-
-                    <th scope="col"><i class="fas fa-trash-alt"></i></th>
-                    <th scope="col">#</th>
-                    <th scope="col">商品名稱</th>
-                    <th scope="col">價格</th>
-                    <th scope="col">製造日期</th>
-                    <th scope="col">使用期限</th>
-                    <th scope="col">上架廠商</th>
-                    <th scope="col">編輯</th>
-
-
-                </tr>
+            <tr>
+                <th scope="col"><i class="fas fa-trash-alt"></i></th>
+                <th scope="col">#</th>
+                <th scope="col">廠商名稱</th>
+                <th scope="col">地址</th>
+                <th scope="col">電話</th>
+                <th scope="col">信箱</th>
+                <th scope="col">統一編號</th>
+                <th scope="col">聯絡人</th>
+            </tr>
             </thead>
+    </div>
             <tbody>
 
 
             </tbody>
         </table>
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+
+
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
     </div>
-    <div class="col d-flex justify-content-center">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
 
-
-            </ul>
-        </nav>
-
-    </div>
 
     <?php include __DIR__ . '../../parts/__scripts.php'; ?>
     <script>
@@ -70,7 +54,7 @@ require __DIR__ . '../../parts/connect.php';
         let pageData;
         const hashHandler = function() {
             // 不要#字號 所以從 索引1 開始切 (location  是指 網站的url)
-            // 如果轉換為數字是 nan 就 設定為 1 
+            // 如果轉換為數字是 nan 就 設定為 1
             let h = parseInt(location.hash.slice(1)) || 1;
             if (h < 1) h = 1
 
@@ -80,10 +64,10 @@ require __DIR__ . '../../parts/connect.php';
 
         window.addEventListener('hashchange', hashHandler)
 
-        hashHandler(); //頁面一進來 直接呼叫 
+        hashHandler(); //頁面一進來 直接呼叫
 
         const pageItemTpl = (obj) => {
-            // 設置一個 pageItemTpl 函數 顯示按鈕 
+            // 設置一個 pageItemTpl 函數 顯示按鈕
             return `<li class="page-item ${obj.active}">
                     <a class="page-link" href="#${obj.page}">${obj.page}</a>
                     </li>`
@@ -92,22 +76,21 @@ require __DIR__ . '../../parts/connect.php';
         const tableRowTpl = (obj) => {
             // 設置一個tableRowTpl 顯示 表格的內容
             return `
-             
+
                     <tr>
-                     
-                    
-                    <td><a href="del.php?sid=${obj.sid}" onclick="ifDel(event)" data-sid="${obj.sid}">
+                    <td><a href="vendor-delete.php?sid=${obj.sid}" onclick="ifDel(event)" data-sid="${obj.sid}">
                     <i class="fas fa-trash-alt"></i>
-                    </a></td>
-                    <td>${obj.sid}</td>
-                    <td>${obj.name}</td>
-                    <td>${obj.price}</td>
-                    <td>${obj.MD}</td>
-                    <td>${obj.expried}</td>
-                    <td>${obj.firm}</td>
-                    <td><a href="edit.php?sid=${obj.sid}"><i class="fas fa-edit"></i></a></td>
-                    </tr>
-                
+                </a></td>
+                <td>${obj.sid}</td>
+                <td>${obj.vendor_name}</td>
+                <td>${obj.address}</td>
+                <td>${obj.TEL}</td>
+                <td>${obj.email}</td>
+                <td>${obj.tax_ID_number}</td>
+                <td>${obj.contact_person}</td>
+                <td><a href="vendor-edit.php?sid=${obj.sid}"><i class="fas fa-edit"></i></a></td>
+
+
                 `;
         };
 
@@ -121,24 +104,20 @@ require __DIR__ . '../../parts/connect.php';
         }
         //   預設值
         function getData(page = 1) {
-            fetch('list_api.php?page=' + page)
+            fetch('vendor-list-api.php?page=' + page)
                 .then(r => r.json())
                 .then(obj => {
                         console.log(obj);
                         pageData = obj;
 
                         let str = '';
-                        const o = [...obj.rows]
-                        for (let i = 0; i < o.length; i++) {
-                            str += tableRowTpl(o[i]);
+                        for (let i of obj.rows) {
+                            // 用for迴圈 把fetch 接收到的rows 資料 遍歷出來 放入tableRowTpl中
+                            str += tableRowTpl(i);
                         }
                         tbody.innerHTML = str;
                         // 把str 塞到 tbody裡
                         str = '';
-
-
-
-
                         if (obj.page === 1) {
                             // 如果是在第一頁 按鈕就不能按
                             str += `<li class="page-item  disabled">
@@ -164,7 +143,7 @@ require __DIR__ . '../../parts/connect.php';
 
 
 
-                        for (let i = 1; i <= obj.totalPages; i++) {
+                        for (let i = obj.page - 3; i <= obj.page + 3; i++) {
                             // 用for迴圈 把 fetch接收到的page資料 資料 遍歷出來 放入pageItemTpl中
                             if (i < 1) continue;
                             if (i > obj.totalPages) continue;
@@ -199,13 +178,14 @@ require __DIR__ . '../../parts/connect.php';
                     <a class="page-link" href="#${obj.totalPages}">最後一頁</a>
                     </li>`
                         }
+
+
                         document.querySelector('.pagination').innerHTML = str;
                         // 把 str 塞到 class pagination裡
 
                     }
 
                 );
-
         }
     </script>
-    <?php include __DIR__ . '../../parts/__html_foot.php'; ?>
+<?php include __DIR__ . '../../parts/__html_foot.php'; ?>

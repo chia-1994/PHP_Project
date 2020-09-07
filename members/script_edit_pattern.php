@@ -1,4 +1,5 @@
 <script>
+    // 檢查
     const email_pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     const password_pattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{6,})$/;
     const id_number_pattern = /^[A-Za-z][12]\d{8}$/;
@@ -62,7 +63,7 @@
 
         if (isPass) {
             const fd = new FormData(document.member_form);
-            fetch('../members/member_edit_api.php', {
+            fetch('member_edit_api.php', {
                     method: 'POST',
                     body: fd
                 })

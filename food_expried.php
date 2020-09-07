@@ -1,26 +1,24 @@
 <?php
 
 $page_name = 'list_food';
-require __DIR__ . '../../parts/connect.php';
+require __DIR__ . '/parts/connect.php';
 ?>
-<?php require __DIR__ . '../../parts/__html_head.php'; ?>
+<?php require __DIR__ . '/parts/__html_head.php'; ?>
 <style>
     .container {
         margin-left: 250px;
         margin-top: 100px;
     }
 
-    s .pagination {
+    .pagination {
         margin-top: 50px
     }
 
-    i {
-        margin-left: 10px;
+    .ex {
+        color: red
     }
 </style>
-<?php include __DIR__ . '../../parts/__navbar.php'; ?>
-
-
+<?php include __DIR__ . '/parts/__navbar.php'; ?>
 
 <div class="container">
     <div class="row">
@@ -35,7 +33,7 @@ require __DIR__ . '../../parts/connect.php';
                 <tr>
 
 
-
+                    <th scope="col"><a href="inser.php">新增</a></th>
                     <th scope="col"><i class="fas fa-trash-alt"></i></th>
                     <th scope="col">#</th>
                     <th scope="col">商品名稱</th>
@@ -43,7 +41,6 @@ require __DIR__ . '../../parts/connect.php';
                     <th scope="col">製造日期</th>
                     <th scope="col">使用期限</th>
                     <th scope="col">上架廠商</th>
-                    <th scope="col">編輯</th>
 
 
                 </tr>
@@ -64,7 +61,7 @@ require __DIR__ . '../../parts/connect.php';
 
     </div>
 
-    <?php include __DIR__ . '../../parts/__scripts.php'; ?>
+    <?php include __DIR__ . '/parts/__scripts.php'; ?>
     <script>
         const tbody = document.querySelector('tbody')
         let pageData;
@@ -95,7 +92,7 @@ require __DIR__ . '../../parts/connect.php';
              
                     <tr>
                      
-                    
+                      <td></td>
                     <td><a href="del.php?sid=${obj.sid}" onclick="ifDel(event)" data-sid="${obj.sid}">
                     <i class="fas fa-trash-alt"></i>
                     </a></td>
@@ -103,7 +100,7 @@ require __DIR__ . '../../parts/connect.php';
                     <td>${obj.name}</td>
                     <td>${obj.price}</td>
                     <td>${obj.MD}</td>
-                    <td>${obj.expried}</td>
+                    <td class = "ex">${obj.expried} (商品以過期)</td>
                     <td>${obj.firm}</td>
                     <td><a href="edit.php?sid=${obj.sid}"><i class="fas fa-edit"></i></a></td>
                     </tr>
@@ -121,7 +118,7 @@ require __DIR__ . '../../parts/connect.php';
         }
         //   預設值
         function getData(page = 1) {
-            fetch('list_api.php?page=' + page)
+            fetch('food_expried_api.php?page=' + page)
                 .then(r => r.json())
                 .then(obj => {
                         console.log(obj);
@@ -130,6 +127,7 @@ require __DIR__ . '../../parts/connect.php';
                         let str = '';
                         const o = [...obj.rows]
                         for (let i = 0; i < o.length; i++) {
+
                             str += tableRowTpl(o[i]);
                         }
                         tbody.innerHTML = str;
@@ -164,7 +162,7 @@ require __DIR__ . '../../parts/connect.php';
 
 
 
-                        for (let i = 1; i <= obj.totalPages; i++) {
+                        for (let i = obj.page - 3; i <= obj.page + 3; i++) {
                             // 用for迴圈 把 fetch接收到的page資料 資料 遍歷出來 放入pageItemTpl中
                             if (i < 1) continue;
                             if (i > obj.totalPages) continue;
@@ -208,4 +206,4 @@ require __DIR__ . '../../parts/connect.php';
 
         }
     </script>
-    <?php include __DIR__ . '../../parts/__html_foot.php'; ?>
+    <?php include __DIR__ . '/parts/__html_foot.php'; ?>

@@ -1,16 +1,16 @@
 <?php
 
 $page_name = 'list_food';
-require __DIR__ . '../../parts/connect.php';
+require __DIR__ . '/parts/connect.php';
 ?>
-<?php require __DIR__ . '../../parts/__html_head.php'; ?>
+<?php require __DIR__ . '/parts/__html_head.php'; ?>
 <style>
     .container {
         margin-left: 250px;
         margin-top: 100px;
     }
 
-    s .pagination {
+    .pagination {
         margin-top: 50px
     }
 
@@ -18,7 +18,7 @@ require __DIR__ . '../../parts/connect.php';
         margin-left: 10px;
     }
 </style>
-<?php include __DIR__ . '../../parts/__navbar.php'; ?>
+<?php include __DIR__ . '/parts/__navbar.php'; ?>
 
 
 
@@ -64,7 +64,7 @@ require __DIR__ . '../../parts/connect.php';
 
     </div>
 
-    <?php include __DIR__ . '../../parts/__scripts.php'; ?>
+    <?php include __DIR__ . '/parts/__scripts.php'; ?>
     <script>
         const tbody = document.querySelector('tbody')
         let pageData;
@@ -208,4 +208,4 @@ require __DIR__ . '../../parts/connect.php';
 
         }
     </script>
-    <?php include __DIR__ . '../../parts/__html_foot.php'; ?>
+    <?php include __DIR__ . '/parts/__html_foot.php'; ?>
