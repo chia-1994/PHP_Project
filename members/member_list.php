@@ -36,11 +36,50 @@ if ($total_rows > 0) {
 ?>
 
 
-<?php require __DIR__ . '../../parts/html_head.php'; ?>
-<?php require __DIR__ . '../../parts/navbar.php'; ?>
+<?php require __DIR__ . '../../parts/__html_head.php'; ?>
+<style>
+    a .fas {
+        color: #86A697;
+    }
 
-<div class="container">
-    <div class="row">
+    a .fas:hover {
+        color: #26453D;
+    }
+
+    .page-item.active .page-link {
+        background-color: #86A697;
+        color: #fffffb;
+        border-color: #86A697;
+    }
+
+    .page-item.disabled .page-link {
+        background-color: #ffffff;
+        color: #ddd;
+        border-color: #ddd;
+    }
+
+    .page-link {
+        color: #86A697;
+        background-color: #ffffff;
+        border-color: #ddd;
+    }
+
+    .page-link:hover {
+        color: #86A697;
+        background-color: #eee;
+        border-color: #ddd;
+    }
+</style>
+<?php require __DIR__ . '../../parts/__navbar.php'; ?>
+
+<div class="container mr-5">
+    <button type="button" style="background-color:<?= $page_name == 'member_list' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_list.php" style="color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
+    <button type="button" style="background-color:<?= $page_name == 'member_new' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_new.php" style="color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>">新增</a></button>
+    <div class="row mt-2">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -116,7 +155,7 @@ if ($total_rows > 0) {
 </div>
 
 
-<?php require __DIR__ . '../../parts/scripts.php'; ?>
+<?php require __DIR__ . '../../parts/__scripts.php'; ?>
 <script>
     function if_click_delete(event) {
         const a = event.currentTarget;
@@ -126,4 +165,4 @@ if ($total_rows > 0) {
         }
     };
 </script>
-<?php require __DIR__ . '../../parts/html_foot.php'; ?>
+<?php require __DIR__ . '../../parts/__html_foot.php'; ?>

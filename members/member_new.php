@@ -2,7 +2,7 @@
 $page_title = '會員新增';
 $page_name = 'member_new';
 require __DIR__ . '/connect_database.php'; ?>
-<?php require __DIR__ . '../../parts/html_head.php'; ?>
+<?php require __DIR__ . '../../parts/__html_head.php'; ?>
 <style>
     span.red-stars {
         color: red;
@@ -11,13 +11,44 @@ require __DIR__ . '/connect_database.php'; ?>
     small.error_msg {
         color: #CCCCCC;
     }
+
+    button a {
+        color: #FFFFFB;
+    }
+
+    button a:hover {
+        color: #FFFFFB;
+    }
+
+    a .fas {
+        color: #86A697;
+    }
+
+    a .fas:hover {
+        color: #26453D;
+    }
+
+    .btn {
+        background-color: #86A697;
+        color: #fffffb;
+    }
+
+    .btn:hover {
+        background-color: #26453D;
+        color: #ffffff;
+    }
 </style>
-<?php require __DIR__ . '../../parts/navbar.php'; ?>
+<?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
-<div class="container">
-
-    <div class="row">
-        <div class="card">
+<div class="container mr-5">
+    <button type="button" style="background-color:<?= $page_name == 'member_list' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_list.php" style="color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
+    <button type="button" style="background-color:<?= $page_name == 'member_new' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_new.php" style="color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>">新增</a></button>
+    <div class="row mt-2">
+        <div class="card col-6">
             <div class="card-body">
                 <h5 class="card-title">會員註冊</h5>
                 <form id="member_form" name="member_form" onsubmit="checkForm(); return false;" novalidate>
@@ -100,7 +131,7 @@ require __DIR__ . '/connect_database.php'; ?>
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary">註冊</button>
+                    <button type="submit" class="btn">註冊</button>
                     <div class="row">
                         <div id="infobar" class="alert alert-success" role="alert" style="display: none"></div>
                     </div>
@@ -110,8 +141,8 @@ require __DIR__ . '/connect_database.php'; ?>
     </div>
 </div>
 
-<?php require __DIR__ . '../../parts/scripts.php'; ?>
-<?php require __DIR__ . '../../parts/script_new_pattern.php'; ?>
+<?php require __DIR__ . '../../parts/__scripts.php'; ?>
+<?php require __DIR__ . '/script_new_pattern.php'; ?>
 
 <script>
     function showpwd() {
@@ -123,4 +154,4 @@ require __DIR__ . '/connect_database.php'; ?>
         }
     }
 </script>
-<?php require __DIR__ . '../../parts/html_foot.php'; ?>
+<?php require __DIR__ . '../../parts/__html_foot.php'; ?>

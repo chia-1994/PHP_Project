@@ -2,7 +2,7 @@
 $page_title = '會員更新';
 $page_name = 'member_edit';
 require __DIR__ . '/connect_database.php';
-require __DIR__ . '../../parts/html_head.php';
+require __DIR__ . '../../parts/__html_head.php';
 
 $id = isset($_GET['id']) ? $_GET['id'] : 0;
 if (empty($id)) {
@@ -26,13 +26,30 @@ if (empty($row)) {
     small.error_msg {
         color: #CCCCCC;
     }
+
+    .btn {
+        background-color: #86A697;
+        color: #fffffb;
+    }
+
+    .btn:hover {
+        background-color: #26453D;
+        color: #ffffff;
+    }
 </style>
-<?php require __DIR__ . '../../parts/navbar.php'; ?>
+<?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
-<div class="container">
-
-    <div class="row">
-
+<div class="container mr-5">
+    <button type="button" style="background-color:<?= $page_name == 'member_list' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_list.php" style="color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
+    <button type="button" style="background-color:<?= $page_name == 'member_new' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_new.php" style="color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>">新增</a></button>
+    <button type="button" style="background-color:<?= $page_name == 'member_edit' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_edit' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="#"" style=" color:<?= $page_name == 'member_edit' ? '#ffffff' : '#86A697' ?>">編輯</a></button>
+    <div class="row mt-2">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">資料更新</h5>
@@ -113,7 +130,7 @@ if (empty($row)) {
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary">更新</button>
+                    <button type="submit" class="btn">更新</button>
                     <div class="row">
                         <div id="infobar" class="alert alert-success" role="alert" style="display: none"></div>
                     </div>
@@ -123,8 +140,8 @@ if (empty($row)) {
     </div>
 </div>
 
-<?php require __DIR__ . '../../parts/scripts.php'; ?>
-<?php require __DIR__ . '../../parts/script_edit_pattern.php'; ?>
+<?php require __DIR__ . '../../parts/__scripts.php'; ?>
+<?php require __DIR__ . '/script_edit_pattern.php'; ?>
 
 <script>
     function showpwd() {
@@ -136,4 +153,4 @@ if (empty($row)) {
         }
     }
 </script>
-<?php require __DIR__ . '../../parts/html_foot.php'; ?>
+<?php require __DIR__ . '../../parts/__html_foot.php'; ?>
