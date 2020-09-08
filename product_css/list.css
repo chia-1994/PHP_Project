@@ -18,6 +18,7 @@
   border-color: #cdc;
 }
 
+<<<<<<< HEAD
 .nvb-flex {
   display: flex;
   justify-content: left;
@@ -50,6 +51,56 @@
   background-color: #cdc;
   text-decoration: none;
 }
+=======
+    .nvb-flex {
+        display: flex;
+
+    }
+
+    .astylenow {
+        /*整個按鍵*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        margin: 20px 10px 20px 0;
+        border: 2px solid #CDC;
+        text-align: center;
+        letter-spacing: 0.4em;
+        background-color: #CDC;
+        color: #fff;
+        font-size: 18px;
+    }
+    .astyle {
+        /*整個按鍵*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        margin: 20px 10px 20px 0;
+        border: 2px solid #CDC;
+        text-align: center;
+        letter-spacing: 0.4em;
+        background-color: #fff;
+        color: #CDC;
+        font-size: 18px;
+    }
+
+    .astylenow:hover {
+        color: #CDC;
+        background-color: #FFF;
+        text-decoration: none;
+    }
+    .astyle:hover {
+        color: #FFF;
+        background-color: #CDC;
+        text-decoration: none;
+    }
+>>>>>>> d9745d542952da2a9efa935398b8e89a0b04917b
 
 .page-item:hover .page-link {
   color: #fff;
@@ -71,6 +122,7 @@
   top: 0;
 }
 
+<<<<<<< HEAD
 .conconcon {
   position: relative;
   /*剩下左邊版面的80%為列表範圍 預留左右+置中*/
@@ -78,3 +130,18 @@
   margin: 0 auto;
 }
 /*以上為小專右邊頁面使用CSS*/
+=======
+    .conconcon {
+        /*剩下左邊版面的80%為列表範圍 預留左右+置中*/
+        width: 80%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .ed{
+        margin: 20px 0 20px 0;
+        position: absolute;
+        right: 0;
+    }
+    /*以上為小專右邊頁面使用CSS*/
+>>>>>>> d9745d542952da2a9efa935398b8e89a0b04917b

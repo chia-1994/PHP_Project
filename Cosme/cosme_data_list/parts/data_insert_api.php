@@ -1,5 +1,4 @@
 <?php
-//待除錯！！！
 require __DIR__. '/_connect_db.php';
 
 $output = [
@@ -7,7 +6,6 @@ $output = [
     'postData' => $_POST,
     'code' => 0,
     'error' => '',
-
 ];
 
 
@@ -21,7 +19,6 @@ $stmt->execute([
     $_POST['price'],
     $_POST['amount'],
     $_POST['vender'],
-
     ]);
 
 if ($stmt->rowCount()){

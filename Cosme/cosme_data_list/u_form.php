@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <?php
 require __DIR__. '/parts/_connect_db.php';
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
@@ -14,9 +17,6 @@ $row = $pdo->query($sql)->fetch();
 //}
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -76,41 +76,66 @@ $row = $pdo->query($sql)->fetch();
 </head>
 
 <body>
+    <?php require __DIR__ .'/../../parts/__navbar.php';?>
+    <style>
+        .btn-wrapper {
+            padding-top: 25px;
+            padding-left: 15%;
+        }
 
-    <div class="wrapper">
+        .f-btn {
+            color: #FFFFFB;
+            background-color: #26453D;
+        }
 
-        <?php require __DIR__ .'/../../parts/__navbar.php';?>
-        <div class="container">
-            <h2 style="margin-left: 15%; padding: 25px;">修改資料</h2>
-            <div class="row form-row">
-                <form name="u_form" onsubmit="checkForm(); return false;">
-                    <div class="form-group">
-                        <label for="EnterProduct"><span class="redstar">*</span>商品名稱</label>
-                        <input type="text" minlength="2" class="form-control" id="product" name="product" value="<?= htmlentities($row['product']) ?>" required>
-                        <small class="form-text error-msg"></small>
-                    </div>
-                    <div class="form-group">
-                        <label for="EnterPrice"><span class="redstar">*</span>價格</label>
-                        <input type="number" min="0" class="form-control" id="price" name="price" value="<?= htmlentities($row['price']) ?>" required>
-                        <small class="form-text error-msg"></small>
-                    </div>
-                    <div class="form-group">
-                        <label for="EnterAmount"><span class="redstar">*</span>數量</label>
-                        <input type="number" min="0" max="999" class="form-control" id="amount" name="amount" value="<?= htmlentities($row['amount']) ?>" required>
-                        <small class="form-text error-msg"></small>
-                    </div>
-                    <div class="form-group">
-                        <label for="EnterVender"><span class="redstar">*</span>上架廠商</label>
-                        <input type="text" minlength="2" class="form-control" id="vender" name="vender" value="<?= htmlentities($row['vender']) ?>" required>
-                        <small class="form-text error-msg"></small>
-                    </div>
+        .btn-a {
+            text-decoration: none;
+            color: #FFFFFB;
+        }
 
-                    <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+        .btn-a:hover {
+            text-decoration: none;
+            color: #86A697;
+        }
+
+    </style>
+
+    <div class="container">
+        <div class="btn-wrapper">
+            <button type="button" class="btn f-btn"><a class="btn-a" href="">商品列表</a></button>
+            <button type="button" class="btn f-btn"><a class="btn-a" href="">新增資料</a></button>
         </div>
+        <h2 style="margin-left: 15%; padding: 25px;">修改資料</h2>
+        <div class="row form-row">
+            <form name="u_form" onsubmit="checkForm(); return false;">
+                <input type="hidden" name="sid" value="<?= $sid ?>">
+                <div class="form-group">
+                    <label for="EnterProduct"><span class="redstar">*</span>商品名稱</label>
+                    <input type="text" minlength="2" class="form-control" id="product" name="product" value="<?= htmlentities($row['product']) ?>" required>
+                    <small class="form-text error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label for="EnterPrice"><span class="redstar">*</span>價格</label>
+                    <input type="number" min="0" class="form-control" id="price" name="price" value="<?= htmlentities($row['price']) ?>" required>
+                    <small class="form-text error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label for="EnterAmount"><span class="redstar">*</span>數量</label>
+                    <input type="number" min="0" max="999" class="form-control" id="amount" name="amount" value="<?= htmlentities($row['amount']) ?>" required>
+                    <small class="form-text error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label for="EnterVender"><span class="redstar">*</span>上架廠商</label>
+                    <input type="text" minlength="2" class="form-control" id="vender" name="vender" value="<?= htmlentities($row['vender']) ?>" required>
+                    <small class="form-text error-msg"></small>
+                </div>
 
+                <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
+
+
 
     <script>
         function checkForm() {
@@ -133,7 +158,7 @@ $row = $pdo->query($sql)->fetch();
                             alert('修改成功！');
                             setTimeout(() => {
                                 window.history.back();
-                            }, 2000)
+                            }, 3000)
                         } else {
                             alert('修改失敗！');
                             $submit.style.dsplay = 'block';

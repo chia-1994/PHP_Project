@@ -10,6 +10,7 @@ $output=[
     'page'=> 0,
     'rows'=> [],
     ];
+    
 
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1; //頁數為整數
 
