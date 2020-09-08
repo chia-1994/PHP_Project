@@ -48,7 +48,7 @@
         <ul class="nav flex-column">
 
             <li class="nav-item">
-                <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">會員管理</a>
+                <a class="nav-link <?= $page_name == 'member' ? 'active' : '' ?>" href="../members/member_loginpage.php">會員管理</a>
             </li>
             <div class="nav-link dropright <?= $page_name == 'vendor-list' ? 'active' : '' ?>">
                 <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
