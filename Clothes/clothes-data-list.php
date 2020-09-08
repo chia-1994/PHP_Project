@@ -24,109 +24,19 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
     $stmt = $pdo->query($sql);
     $rows = $stmt->fetchAll();
 }
-
 //在HTML出現前拿資料(一般的準則)
-
 ?>
-
-
-
-
 <?php include __DIR__ . '/../parts/__html_head.php' ?>
-<style>
-    .trashcolor {
-        color: #CDC;
-        cursor: pointer;
-    }
-
-    .editcolor {
-        color: #CDC;
-        cursor: pointer;
-    }
-
-
-    /*以下為小專左邊頁面使用CSS*/
-    .Paginationcolor {
-        color: #CDC;
-    }
-
-    .page-item.active .page-link {
-        background-color: #CDC;
-        border-color: #CDC;
-    }
-
-    .nvb-flex {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-    }
-
-    .astyle {
-        /*整個按鍵*/
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 150px;
-        height: 40px;
-        border-radius: 10px;
-        margin: 20px 10px 20px 0;
-        border: 2px solid #CDC;
-        text-align: center;
-        letter-spacing: 0.4em;
-        background-color: #fff;
-        color: #CDC;
-        font-size: 18px;
-    }
-
-    .astyle:hover {
-        color: #FFF;
-        background-color: #CDC;
-        text-decoration: none;
-    }
-
-    .page-item:hover .page-link {
-        color: #fff;
-        background-color: #CDC;
-    }
-
-<<<<<<< HEAD
-    
-=======
->>>>>>> 3f60d63538792f17c7607a0f84292d604064220b
-    .QAQ {
-        /*將版面擠出左邊navbar */
-        width: 15%;
-        height: 100vh;
-    }
-
-    .concon {
-        /*剩下的左邊版面*/
-        width: 85%;
-        height: 100vh;
-        position: fixed;
-        right: 0;
-        top: 0;
-    }
-
-    .conconcon {
-        /*剩下左邊版面的80% 預留左右+置中*/
-        width: 80%;
-        margin: 0 auto;
-    }
-
-
-    /*以上為小專左邊頁面使用CSS*/
-</style>
+<link rel="stylesheet" href="./../product_css/list.css">
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
-
+<!-- 以下為右邊頁面加入 -->
+<!-- container改成concon -->
 <div class="concon">
     <div class="nvb-flex conconcon">
-
         <a class="astyle" href="./clothes-data-list.php">資料列表</a>
-
         <a class="astyle" href="./clothes-data-insert.php">新增資料</a>
-
     </div>
+    <!-- ------------>
     <table class="table table-striped conconcon">
         <!-- `sid`, `gender`, `name`, `class`, `color`, `size`, `price`, `vendor`, `added_time` -->
         <thead>
@@ -197,12 +107,6 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
             location.href = 'clothes-data-delete.php?sid=' + sid;
         }
     }
-
-
-
-
-
-
     // const table = document.querySelector('table');
 
     // table.addEventListener('click', (event) => {
