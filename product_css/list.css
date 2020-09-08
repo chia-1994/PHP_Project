@@ -20,10 +20,25 @@
 
     .nvb-flex {
         display: flex;
-        justify-content: left;
-        align-items: center;
+
     }
 
+    .astylenow {
+        /*整個按鍵*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        margin: 20px 10px 20px 0;
+        border: 2px solid #CDC;
+        text-align: center;
+        letter-spacing: 0.4em;
+        background-color: #CDC;
+        color: #fff;
+        font-size: 18px;
+    }
     .astyle {
         /*整個按鍵*/
         display: flex;
@@ -41,6 +56,11 @@
         font-size: 18px;
     }
 
+    .astylenow:hover {
+        color: #CDC;
+        background-color: #FFF;
+        text-decoration: none;
+    }
     .astyle:hover {
         color: #FFF;
         background-color: #CDC;
@@ -71,5 +91,12 @@
         /*剩下左邊版面的80%為列表範圍 預留左右+置中*/
         width: 80%;
         margin: 0 auto;
+        position: relative;
+    }
+
+    .ed{
+        margin: 20px 0 20px 0;
+        position: absolute;
+        right: 0;
     }
     /*以上為小專右邊頁面使用CSS*/

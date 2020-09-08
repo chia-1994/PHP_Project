@@ -13,7 +13,28 @@
         align-items: center;
     }
 
-    .acolor {
+    .astyle3now {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        margin: 20px;
+        border: 2px solid #CDC;
+        text-align: center;
+        letter-spacing: 0.4em;
+        background-color: #CDC;
+        color: #FFF;
+        font-size: 18px;
+    }
+
+    .astyle3now:hover {
+        color: #CDC;
+        background-color: #FFF;
+        text-decoration: none;
+    }
+    .astyle3 {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -29,7 +50,7 @@
         font-size: 18px;
     }
 
-    .acolor:hover {
+    .astyle3:hover {
         color: #FFF;
         background-color: #CDC;
         text-decoration: none;

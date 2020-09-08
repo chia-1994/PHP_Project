@@ -25,6 +25,8 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
     $rows = $stmt->fetchAll();
 }
 //在HTML出現前拿資料(一般的準則)
+
+
 ?>
 <?php include __DIR__ . '/../parts/__html_head.php' ?>
 <link rel="stylesheet" href="./../product_css/list.css">
@@ -33,8 +35,14 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
 <!-- container改成concon -->
 <div class="concon">
     <div class="nvb-flex conconcon">
-        <a class="astyle" href="./clothes-data-list.php">資料列表</a>
+        <a class="astylenow" href="./clothes-data-list.php">資料列表</a>
         <a class="astyle" href="./clothes-data-insert.php">新增資料</a>
+
+        <form class="form-inline ed" name="form1" onsubmit="searchKeyword(); return false; novalidate">
+                <input class=" form-control mr-sm-2" type="search" placeholder="Search" id="search" name="search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
     </div>
     <!-- ------------>
     <table class="table table-striped conconcon">

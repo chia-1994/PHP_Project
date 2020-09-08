@@ -13,8 +13,8 @@ require __DIR__ . '/parts/__connect_db.php';
 <div class="QAQ"></div>
 <div class="concon">
     <div class="nvb-flex">
-        <a class="acolor" href="./clothes-data-list.php">資料列表</a>
-        <a class="acolor" href="./clothes-data-insert.php">新增資料</a>
+        <a class="astyle3" href="./clothes-data-list.php">資料列表</a>
+        <a class="astyle3now" href="./clothes-data-insert.php">新增資料</a>
         <!-- 以上為小專右邊頁面-->
         <!-- 以下拿掉row & col-6 + 補上tomid-->
     </div>

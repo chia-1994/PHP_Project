@@ -19,6 +19,12 @@ if(empty($row)){
 
 <?php include __DIR__ . '/../parts/__html_head.php' ?>
 <link rel="stylesheet" href="./../product_css/edit.css">
+<style>
+    .alert {
+    text-align: center;       
+}
+
+</style>
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
 <!-- `sid`, `gender`, `name`, `class`, `color`, `size`, `price`, `vendor`, `added_time` -->
 <!-- novalidate 此表單不做檢查   required 此欄必填 -->
@@ -30,7 +36,7 @@ if(empty($row)){
         <!-- 以上為小專左邊頁面-->
         <!-- 以下拿掉row & col-6 + 補上tomid-->
     <div class="row">
-        <div class="col alerttomid">
+        <div class="col">
             <div class="alert alert-success" role="alert" id="infobar" style="display:none">
                 編輯成功
             </div>

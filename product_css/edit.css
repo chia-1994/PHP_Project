@@ -50,11 +50,10 @@
     margin: 0 auto;
     width: 500px;
 }
-.alerttomid {
-    margin: 0 auto;
-    width: 500px;
-    text-align: center;       
-}
+/* .alert {
+    text-align: center;
+    寫在自己的頁面       
+} */
 
 .form-control {
     border: 2px solid #CDC;
