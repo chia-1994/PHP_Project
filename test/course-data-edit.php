@@ -19,7 +19,7 @@ if (empty($row)) {
 <?php require __DIR__ . '/parts/__html_head.php'; ?>
 <style>
     .container {
-        margin: 50px 400px;
+        margin: 50px 400px 300px 300px;
     }
 
     span.red-stars {
@@ -29,15 +29,16 @@ if (empty($row)) {
     small.error-msg {
         color: red;
     }
+
+    .col-lg-12 {
+        margin-top: 20px;
+    }
 </style>
 
 <?php include __DIR__ . '/parts/__course_navbar.php'; ?>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <div id="infobar" class="alert alert-success" role="alert" style="display: none">
-                A simple success alert—check it out!
-            </div>
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">編輯課程</h5>
@@ -95,24 +96,26 @@ if (empty($row)) {
                             <small class="form-text error-msg"></small>
                         </div>
 
-
                         <div class="form-group">
                             <label for="introduction">課程簡介</label>
                             <textarea class=" form-control" id="introduction" name="introduction" cols="30" rows="3" placeholder="請摘要輸入廣宣或新聞稿內容"><?= $row['introduction'] ?></textarea>
                         </div>
-
                         <form>
                             <div class="row">
                                 <div class="col">
                                     <button type="submit" class="btn btn-primary col-lg-12">送出編輯</button>
                                 </div>
                                 <div class="col">
-                                    <button type="submit" class="btn btn-warning col-lg-12"><a href="course-data-list.php" target="_self" style="text-decoration:none;color:black;">取消編輯</a></button>
+                                    <button type="submit" class="btn btn-warning col-lg-12" onclick="self.location.href='course-data-list.php'" style="text-decoration:none;color:black;">取消編輯</button>
                                 </div>
                             </div>
                         </form>
                     </form>
                 </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div id="infobar" class="alert alert-success" role="alert" style="display: none">
             </div>
         </div>
     </div>
@@ -140,7 +143,7 @@ if (empty($row)) {
             el.style.borderColor = '#cccccc';
             el.nextElementSibling.innerHTML = '';
         });
-        submitBtn.style.display = 'none';
+        submitBtn.style.display = 'disable';
         // TODO: 檢查資料格式
         if ($teacher.value.length < 2) {
             isPass = false;
@@ -214,7 +217,7 @@ if (empty($row)) {
                         //     // }
                         setTimeout(() => {
                             location.href = 'course-data-list.php';
-                        }, 3000)
+                        }, 1500)
                     } else {
                         infobar.innerHTML = obj.error || '資料沒有修改';
                         infobar.className = "alert alert-danger";
