@@ -13,8 +13,8 @@
         background-color: #26453D;
         display: block;
         padding: 20px 0 0 0;
-        position: fixed;
-
+        position: absolute;
+        /* ALN將position改為absolute為讓dropdown不被蓋住 */
     }
 
     .nav-link {
@@ -38,6 +38,11 @@
 
     .aa {
         z-index: 9999999;
+    }
+
+    .dropdown-toggle{
+        /* ALN補的 */
+        cursor: pointer;
     }
 </style>
 <div class="wrapper">

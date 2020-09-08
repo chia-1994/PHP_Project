@@ -61,7 +61,8 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
         align-items: center;
     }
 
-    .astyle {    /*整個按鍵*/
+    .astyle {
+        /*整個按鍵*/
         display: flex;
         justify-content: center;
         align-items: center;
@@ -77,26 +78,35 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
         font-size: 18px;
     }
 
-    .astyle:hover{
+    .astyle:hover {
         color: #FFF;
         background-color: #CDC;
         text-decoration: none;
     }
+
     .page-item:hover .page-link {
         color: #fff;
         background-color: #CDC;
     }
 
-    .QAQ{  /*將版面擠出左邊navbar */
+    
+    .QAQ {
+        /*將版面擠出左邊navbar */
         width: 15%;
-        height: 100%;
-    }
-    .concon{  /*剩下的左邊版面*/
-        width: 85%;
         height: 100vh;
     }
-    
-    .conconcon{  /*剩下左邊版面的80% 預留左右+置中*/
+
+    .concon {
+        /*剩下的左邊版面*/
+        width: 85%;
+        height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+
+    .conconcon {
+        /*剩下左邊版面的80% 預留左右+置中*/
         width: 80%;
         margin: 0 auto;
     }
@@ -105,7 +115,7 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
     /*以上為小專左邊頁面使用CSS*/
 </style>
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
-<div class="QAQ"></div>
+
 <div class="concon">
     <div class="nvb-flex conconcon">
 
