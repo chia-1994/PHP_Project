@@ -77,45 +77,13 @@ $row = $pdo->query($sql)->fetch();
 
 <body>
 
-    <?php require __DIR__ .'/parts/_connect_db.php';?>
-
     <div class="wrapper">
 
-        <div class="navbar">
-            <a style="color: #FFFFFB;font-size: 20px;margin-left:20%;">管理平台</a>
-            <ul class="nav flex-column">
-
-                <li class="nav-item">
-                    <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">會員管理</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">廠商管理</a>
-                </li>
-                <div class="nav-link dropright <?= $page_name == '##' ? 'active' : '' ?>">
-                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
-                        商品管理
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">美妝保養</a>
-                        <a class="dropdown-item" href="#">無毒食品</a>
-                        <a class="dropdown-item" href="#">無負擔服飾</a>
-                        <!-- <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a> -->
-                    </div>
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">課程管理</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $page_name == 'orders' ? 'active' : '' ?>" href="#">訂單管理</a>
-                </li>
-            </ul>
-
-        </div>
+        <?php require __DIR__ .'/../../parts/__navbar.php';?>
         <div class="container">
             <h2 style="margin-left: 15%; padding: 25px;">修改資料</h2>
             <div class="row form-row">
-                <form name="c_form" onsubmit="checkForm(); return false;">
+                <form name="u_form" onsubmit="checkForm(); return false;">
                     <div class="form-group">
                         <label for="EnterProduct"><span class="redstar">*</span>商品名稱</label>
                         <input type="text" minlength="2" class="form-control" id="product" name="product" value="<?= htmlentities($row['product']) ?>" required>
@@ -145,6 +113,38 @@ $row = $pdo->query($sql)->fetch();
     </div>
 
     <script>
+        function checkForm() {
+            let isPass = true;
+            //            if (){
+            // isPass = false;
+            // }
+            //        }
+
+            if (isPass) {
+                const fd = new FormData(document.u_form);
+                fetch('./parts/data_update_api.php', {
+                        method: 'POST',
+                        body: fd
+                    })
+                    .then(r => r.json())
+                    .then(obj => {
+                        console.log(obj);
+                        if (obj.success) {
+                            alert('修改成功！');
+                            setTimeout(() => {
+                                window.history.back();
+                            }, 2000)
+                        } else {
+                            alert('修改失敗！');
+                            $submit.style.dsplay = 'block';
+                        }
+
+
+                    })
+            } else {
+                $submit.style.display = 'block';
+            }
+        }
 
     </script>
 

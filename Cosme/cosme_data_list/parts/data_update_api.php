@@ -40,6 +40,7 @@ $sql = "UPDATE `product_cosme` SET
     `price`=?,
     `amount`=?,
     `vender`=?,
+    `created_at`=NOW(),
     WHERE `sid`=?";
 
 $stmt = $pdo->prepare($sql);

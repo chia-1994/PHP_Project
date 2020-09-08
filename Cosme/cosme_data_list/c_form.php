@@ -64,41 +64,11 @@
 
     <div class="wrapper">
 
-        <div class="navbar">
-            <a style="color: #FFFFFB;font-size: 20px;margin-left:20%;">管理平台</a>
-            <ul class="nav flex-column">
-
-                <li class="nav-item">
-                    <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">會員管理</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">廠商管理</a>
-                </li>
-                <div class="nav-link dropright <?= $page_name == '##' ? 'active' : '' ?>">
-                    <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
-                        商品管理
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">美妝保養</a>
-                        <a class="dropdown-item" href="#">無毒食品</a>
-                        <a class="dropdown-item" href="#">無負擔服飾</a>
-                        <!-- <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a> -->
-                    </div>
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">課程管理</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= $page_name == 'orders' ? 'active' : '' ?>" href="#">訂單管理</a>
-                </li>
-            </ul>
-
-        </div>
+        <?php require __DIR__ .'/../../parts/__navbar.php';?>
         <div class="container">
             <h2 style="margin-left: 15%; padding: 25px;">新增資料</h2>
             <div class="row form-row">
-                <form name="c_form" onsubmit="checkForm(); return false;">
+                <form name="c_form" onsubmit="checkForm();return false;" novalidate>
                     <div class="form-group">
                         <label for="EnterProduct"><span class="redstar">*</span>商品名稱</label>
                         <input type="text" minlength="2" class="form-control" id="product" name="product" required>
@@ -120,7 +90,7 @@
                         <small class="form-text error-msg"></small>
                     </div>
 
-                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
@@ -133,39 +103,38 @@
         const $amount = document.querySelector('#amount');
         const $vender = document.querySelector('#vender');
         const $submit = document.querySelector('button[type=submit]');
-        const $c_form_field = [$product, $price, $amount, $vender];
 
         function checkForm() {
             let isPass = true;
+            //            if (){
+            // isPass = false;
+            // }
+            //        }
 
-            $c_form_field.forEach(element) => {
-                element.style.borderColor = '#CCCCCC';
-                element.nextElementSibling = '';
-            }
-
-        }
-
-        if (isPass) {
-            const fd = new FormData(document.c_form);
-            fetch('./parts/data_insert_api.php', {
-                    method: 'POST',
-                    body: fd
-                })
-                .then(r => r.json())
-                .then(obj => {
-                    if (obj.success) {
-                        alert('新增成功！');
-                        setTimeout(() => {
-                            location.herf = 'cosme_data_list.php'
-                        }, 3000)
-                        else {
+            if (isPass) {
+                const fd = new FormData(document.c_form);
+                fetch('./parts/data_insert_api.php', {
+                        method: 'POST',
+                        body: fd
+                    })
+                    .then(r => r.json())
+                    .then(obj => {
+                        console.log(obj);
+                        if (obj.success) {
+                            alert('新增成功！');
+                            setTimeout(() => {
+                                location.herf = 'cosme_data_list.php'
+                            }, 3000)
+                        } else {
                             alert('新增失敗！');
                             $submit.style.dsplay = 'block';
                         }
-                    } else {
-                        $submit.style.display = 'block';
-                    }
-                })
+
+
+                    })
+            } else {
+                $submit.style.display = 'block';
+            }
         }
 
     </script>

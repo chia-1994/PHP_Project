@@ -21,7 +21,7 @@ $stmt->execute([
     $_POST['price'],
     $_POST['amount'],
     $_POST['vender'],
-    $_POST['created_at']
+
     ]);
 
 if ($stmt->rowCount()){
