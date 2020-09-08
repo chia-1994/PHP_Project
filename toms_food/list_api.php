@@ -23,6 +23,7 @@ $output = [
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 // 到shoplist撈資料
 // 塞選過期時間
+
 if ($search) {
     $t_sql = "SELECT COUNT(1) FROM `shop_list` $where";
     // 總共有幾筆

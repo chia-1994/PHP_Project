@@ -3,8 +3,10 @@ $page_title = '修改資料';
 $page_name = 'edit';
 // 與資料庫連線
 $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'list.php';
-require __DIR__ . '/parts/connect.php';
+
+require __DIR__ . '../../parts/connect.php';
 ?>
+
 <?php
 // 如果有get到sid 就get到的sid 沒有get到就變0
 $sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
@@ -25,19 +27,28 @@ if (empty($row)) {
 ?>
 
 <?php require __DIR__ . '../../parts/__html_head.php'; ?>
+<link rel="stylesheet" href="./../product_css/edit.css">
 <style>
-    .container {
-        margin-left: 500px;
+    .alert {
+        text-align: center;
     }
 </style>
 <?php include __DIR__ . '../../parts/__navbar.php'; ?>
-<div class="container">
-    <div class="row" style="">
-        <div class="col-lg-6">
+
+
+<div class="concon">
+    <div class="nvb-flex">
+        <a class="astyle2" href="list.php">返回資料列表</a>
+    </div>
+    <div class="row">
+        <div class="col">
+
             <div id="infobar" class="alert alert-success" role="alert" style="display: none">
                 A simple success alert—check it out!
             </div>
-            <div class="card">
+
+            <div class="tomid">
+
                 <div class="card-body">
                     <h5 class="card-title">修改資料</h5>
 
@@ -72,17 +83,22 @@ if (empty($row)) {
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-
-
-
-
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
 <?php include __DIR__ . '../../parts/__scripts.php'; ?>
 <script>
     // 列出正規表達式的格式

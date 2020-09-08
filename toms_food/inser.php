@@ -5,108 +5,75 @@ $page_name = 'inser';
 require __DIR__ . '../../parts/connect.php';
 ?>
 <?php require __DIR__ . '../../parts/__html_head.php'; ?>
+<link rel="stylesheet" href="../../PHP_Project/product_css/insert.css">
 <style>
-    span.red-stars {
-        color: red;
+    .alert {
+        text-align: center;
     }
 
-    small.error_msg {
-        color: #CCCCCC;
-    }
-
-    button a {
-        color: #FFFFFB;
-    }
-
-    button a:hover {
-        color: #FFFFFB;
-    }
-
-    a .fas {
-        color: #86A697;
-    }
-
-    a .fas:hover {
-        color: #26453D;
-    }
-
-    .btn {
-        background-color: #86A697;
-        color: #fffffb;
-    }
-
-    .btn:hover {
-        background-color: #26453D;
-
-        color: #ffffff;
-    }
-
-    .aa {
-        z-index: -5;
+    .inser {
+        color: #fff;
+        background-color: #cdc
     }
 </style>
 <?php include __DIR__ . '../../parts/__navbar.php'; ?>
-<div class="container">
-    <div class="row">
 
-        <div class="col-lg-6 ml-5 mt-5 aa">
-            <div class="col mb-5">
-
-                <button type="button" style="background-color:<?= $page_name == 'list_food' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name == 'list_food' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-                    <a href="list.php" style="color:<?= $page_name == 'list_food' ? '#ffffff' : '#86A697' ?>">食品列表</a></button>
-                <button type="button" style="background-color:<?= $page_name == 'inser' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name == 'inser' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-                    <a href="inser.php" style="color:<?= $page_name == 'inser' ? '#ffffff' : '#86A697' ?>">新增</a></button>
-            </div>
-            <div id="infobar" class="alert alert-success" role="alert" style="display: none">
-                A simple success alert—check it out!
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">新增資料</h5>
-
-                    <form name="form1" onsubmit="checkForm(); return false; novalidate">
-                        <div class="form-group">
-                            <label for="name"><span class="red-stars">**</span>產品名稱</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                            <small class="form-text error-msg"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="price"><span class="red-stars">**</span>價格</label>
-                            <input type="int" class="form-control" id="price" name="price">
-                            <small class="form-text error-msg"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="MD"><span class="red-stars">**</span>製造日期</label>
-                            <input type="date" class="form-control" id="MD" name="MD">
-                            <small class="form-text error-msg"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="expried"><span class="red-stars">**</span>使用期限</label>
-                            <input type="date" class="form-control" id="expried" name="expried">
-                            <small class="form-text error-msg"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="firm"><span class="red-stars">**</span>上架廠商</label>
-                            <input type="text" class="form-control" name="firm" id="firm"></input>
-                            <small class="form-text error-msg"></small>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
-
-        </div>
+<div class="col mb-5 concon">
+    <div class="nvb-flex">
+        <a class="acolor " href="list.php">資料列表</a>
+        <a class="acolor inser" href="inser.php">新增資料</a>
     </div>
 
 
+    <div id="infobar" class="alert alert-success" role="alert" style="display: none">
+        A simple success alert—check it out!
+    </div>
 
+    <div class="card  tomid">
+        <div class="card-body">
+            <h5 class="card-title">新增資料</h5>
 
+            <form name="form1" onsubmit="checkForm(); return false; novalidate">
+                <div class="form-group">
+                    <label for="name"><span class="red-stars">**</span>產品名稱</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                    <small class="form-text error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label for="price"><span class="red-stars">**</span>價格</label>
+                    <input type="int" class="form-control" id="price" name="price">
+                    <small class="form-text error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label for="MD"><span class="red-stars">**</span>製造日期</label>
+                    <input type="date" class="form-control" id="MD" name="MD">
+                    <small class="form-text error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label for="expried"><span class="red-stars">**</span>使用期限</label>
+                    <input type="date" class="form-control" id="expried" name="expried">
+                    <small class="form-text error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label for="firm"><span class="red-stars">**</span>上架廠商</label>
+                    <input type="text" class="form-control" name="firm" id="firm"></input>
+                    <small class="form-text error-msg"></small>
+                </div>
 
-
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
+
+
+
+
+
+
+
+
+
 <?php include __DIR__ . '../../parts/__scripts.php'; ?>
 <script>
     // 列出正規表達式的格式
