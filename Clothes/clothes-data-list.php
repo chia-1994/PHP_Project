@@ -27,7 +27,7 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
 //在HTML出現前拿資料(一般的準則)
 ?>
 <?php include __DIR__ . '/../parts/__html_head.php' ?>
-<link rel="stylesheet" href="./list.css">
+<link rel="stylesheet" href="./../product_css/list.css">
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
 <!-- 以下為右邊頁面加入 -->
 <!-- container改成concon -->

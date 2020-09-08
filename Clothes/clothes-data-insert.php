@@ -5,7 +5,7 @@ require __DIR__ . '/parts/__connect_db.php';
 ?>
 
 <?php include __DIR__ . '/../parts/__html_head.php' ?>
-<link rel="stylesheet" href="./insert.css">
+<link rel="stylesheet" href="./../product_css/insert.css">
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
 <!-- `sid`, `gender`, `name`, `class`, `color`, `size`, `price`, `vendor`, `added_time` -->
 <!-- novalidate 此表單不做檢查   required 此欄必填 -->

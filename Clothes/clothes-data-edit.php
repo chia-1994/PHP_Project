@@ -18,7 +18,7 @@ if(empty($row)){
 ?>
 
 <?php include __DIR__ . '/../parts/__html_head.php' ?>
-<link rel="stylesheet" href="./edit.css">
+<link rel="stylesheet" href="./../product_css/edit.css">
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
 <!-- `sid`, `gender`, `name`, `class`, `color`, `size`, `price`, `vendor`, `added_time` -->
 <!-- novalidate 此表單不做檢查   required 此欄必填 -->
