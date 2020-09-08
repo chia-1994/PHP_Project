@@ -140,5 +140,4 @@ require __DIR__ . '/parts/__connect_db.php';  //連線到資料庫
         });
     }
 </script>
-
 <?php include __DIR__ . '/parts/__html_foot.php' ?>

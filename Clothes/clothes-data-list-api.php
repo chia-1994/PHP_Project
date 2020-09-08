@@ -37,4 +37,3 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
 
-

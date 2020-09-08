@@ -3,7 +3,7 @@ $page_title = '修改資料';
 $page_name = 'edit';
 // 與資料庫連線
 $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'list.php';
-require __DIR__ . '../../parts/connect.php';
+require __DIR__ . '/parts/connect.php';
 ?>
 <?php
 // 如果有get到sid 就get到的sid 沒有get到就變0
@@ -32,7 +32,7 @@ if (empty($row)) {
 </style>
 <?php include __DIR__ . '../../parts/__navbar.php'; ?>
 <div class="container">
-    <div class="row">
+    <div class="row" style="">
         <div class="col-lg-6">
             <div id="infobar" class="alert alert-success" role="alert" style="display: none">
                 A simple success alert—check it out!
