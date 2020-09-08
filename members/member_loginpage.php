@@ -1,7 +1,7 @@
 <?php
 $page_title = '登入';
 $page_name = 'member';
-$page_name1 = 'member_loginpage'; 
+$page_name1 = 'member_loginpage';
 require __DIR__ . '../../parts/__html_head.php'; ?>
 <style>
     .btn {
@@ -16,24 +16,15 @@ require __DIR__ . '../../parts/__html_head.php'; ?>
         color: #ffffff;
     }
 </style>
+<link rel="stylesheet" href="style_right.css">
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
-<div class="container mr-5">
-    <div class="row">
-        <button type="button" class="btn mt-1">
-            <a href="member_manage_login.php">管理者登入</a></button>
+<div class="concon">
+    <div class=" conconcon">
+        <a class="astylenow" href="member_manage_login.php">管理者登入</a>
+        <a class="astylenow" href="member_user_login.php">使用者登入</a>
+        <a class="astylenow" href="member_new.php">會員註冊</a>
     </div>
-    <br>
-    <div class="row">
-        <button type="button" class="btn mt-1">
-            <a href="member_user_login.php">使用者登入</a></button>
-    </div>
-    <br>
-    <div class="row">
-        <button type="button" class="btn mt-1">
-            <a href="member_new.php">會員註冊</a></button>
-    </div>
-</div>
 
 
-<?php require __DIR__ . '../../parts/__scripts.php'; ?>
-<?php require __DIR__ . '../../parts/__html_foot.php'; ?>
+    <?php require __DIR__ . '../../parts/__scripts.php'; ?>
+    <?php require __DIR__ . '../../parts/__html_foot.php'; ?>

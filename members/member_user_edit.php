@@ -38,19 +38,25 @@ if (empty($row)) {
         color: #ffffff;
     }
 </style>
+<link rel="stylesheet" href="style_right.css">
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
-<div class="container mr-5">
-    <button type="button" style="background-color:<?= $page_name1 == 'member_user_list' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name1 == 'member_user_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-        <a href="member_user_list.php" style="color:<?= $page_name1 == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
-    <button type="button" style="background-color:<?= $page_name1 == 'member_user_edit' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name1 == 'member_user_edit' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-        <a href="#" style=" color:<?= $page_name1 == 'member_user_edit' ? '#ffffff' : '#86A697' ?>">編輯</a></button>
-    <div class="row mt-2">
-        <div class="card">
+
+
+
+<div class="concon">
+    <div class="nvb-flex conconcon col-6">
+        <a class="astyle" href="member_user_list.php">會員列表</a>
+        <div class="astylename" href="#">編輯</div>
+    </div>
+    <div class="col-6  conconcon">
+        <div class="card tomid">
+
+
+
+
             <div class="card-body">
-                <h5 class="card-title">資料更新</h5>
+                <!-- <h5 class="card-title">資料更新</h5> -->
                 <form id="member_form" name="member_form" onsubmit="checkForm(); return false;" novalidate>
                     <input type="hidden" name="id" value="<?= $row['id'] ?>">
                     <div class="form-group">

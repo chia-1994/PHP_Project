@@ -40,19 +40,17 @@ require __DIR__ . '/member_admin_require.php'; ?>
         color: #ffffff;
     }
 </style>
+<link rel="stylesheet" href="style_right.css">
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
+<div class="concon">
+    <div class="nvb-flex conconcon col-6">
+        <div class="astylename" href="member_new.php">新增</div>
 
-<div class="container mr-5">
-    <button type="button" style="background-color:<?= $page_name1 == 'member_list' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name1 == 'member_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-        <a href="member_list.php" style="color:<?= $page_name1 == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
-    <button type="button" style="background-color:<?= $page_name1 == 'member_new' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name1 == 'member_new' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-        <a href="member_new.php" style="color:<?= $page_name1 == 'member_new' ? '#ffffff' : '#86A697' ?>">新增</a></button>
-    <div class="row mt-2">
-        <div class="card col-6">
+    </div>
+    <div class="col-6  conconcon">
+        <div class="card tomid">
             <div class="card-body">
-                <h5 class="card-title">會員註冊</h5>
+                <!-- <h5 class="card-title">會員註冊</h5> -->
                 <form id="member_form" name="member_form" onsubmit="checkForm(); return false;" novalidate>
 
                     <div class="form-group">

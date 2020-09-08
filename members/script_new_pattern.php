@@ -85,7 +85,7 @@
                         infobar.innerHTML = '新增成功';
                         infobar.className = "alert alert-success";
                         setTimeout(() => {
-                            location.href = 'member_list.php';
+                            location.href = 'member_user_list.php';
                         }, 3000)
                     } else {
                         infobar.innerHTML = obj.error || '新增失敗';
