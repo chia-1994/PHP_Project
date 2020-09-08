@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="/../fontawesome/css/all.css">
+    <title>美妝保養 商品列表</title>
 
     <?php require __DIR__ .'/../../parts/__navbar.php';?>
     <style>
@@ -72,7 +73,7 @@
     <?php require __DIR__ .'/parts/data_request_api.php';?>
     <div class="container">
         <div class="btn-wrapper">
-            <button type="button" class="btn f-btn"><a class="btn-a" href="">資料列表</a></button>
+            <button type="button" class="btn f-btn"><a class="btn-a" href="">商品列表</a></button>
             <button type="button" class="btn f-btn"><a class="btn-a" href="">新增資料</a></button>
         </div>
         <div class="row">
