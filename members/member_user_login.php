@@ -1,6 +1,6 @@
 <?php
 $page_title = '會員登入';
-$page_name = 'member_manage_login';
+$page_name = 'member_user_login';
 require __DIR__ . '/connect_database.php';
 ?>
 
@@ -21,18 +21,18 @@ require __DIR__ . '/connect_database.php';
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 <div class="container mr-5">
 
-    <button type="button" style="background-color:<?= $page_name == 'member_manage_login' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name == 'member_manage_login' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-        管理者登入</button>
+    <button type="button" style="background-color:<?= $page_name == 'member_user_login' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name == 'member_user_login' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        會員登入</button>
     <div class="row mt-5">
         <div class="col-6">
             <form method="post" name="login_form" onsubmit="checkForm() ;return false;">
                 <div class="form-group">
-                    <label for="account">帳號</label>
-                    <input type="text" class="form-control" id="account" name="account">
+                    <label for="email">帳號(email)</label>
+                    <input type="text" class="form-control" id="email" name="email">
                 </div>
-                <div class="form-group">
-                    <label for="password">密碼</label>
+                <div class=" form-group">
+                    <label for="pwd">密碼</label>
                     <input type="password" class="form-control" id="pwd" name="pwd">
                 </div>
                 <div class="form-group form-check">
@@ -60,7 +60,7 @@ require __DIR__ . '/connect_database.php';
 
     function checkForm() {
         const fd = new FormData(document.login_form);
-        fetch('member_manage_login_api.php', {
+        fetch('member_user_login_api.php', {
                 method: 'POST',
                 body: fd
             })
@@ -69,7 +69,7 @@ require __DIR__ . '/connect_database.php';
                 console.log(obj);
                 if (obj.success) {
                     alert('登入成功');
-                    location.href = 'member_list.php';
+                    location.href = 'member_user_list.php';
                 } else {
                     alert('登入失敗');
                 }

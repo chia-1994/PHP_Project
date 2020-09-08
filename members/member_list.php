@@ -79,8 +79,14 @@ if ($total_rows > 0) {
     <button type="button" style="background-color:<?= $page_name == 'member_new' ? '#86A697' : '#ffffff' ?> ;
            border-color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
         <a href="member_new.php" style="color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>">新增</a></button>
+
+
+    <button type="button" style="background-color:#86A697;" class="btn mt-1">
+        <a style="color:#ffffff"><?= $_SESSION['admin']['name'] ?></a></button>
+
     <button type="button" style="background-color:#86A697;" class="btn mt-1">
         <a href="member_manage_login.php" style="color:#ffffff">登出</a></button>
+
     <div class="row mt-2">
         <table class="table table-striped">
             <thead>
