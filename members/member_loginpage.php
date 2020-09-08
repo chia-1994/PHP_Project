@@ -1,4 +1,7 @@
-<?php require __DIR__ . '../../parts/__html_head.php'; ?>
+<?php
+$page_title = '登入';
+$page_name = 'member_loginpage'; 
+require __DIR__ . '../../parts/__html_head.php'; ?>
 <style>
     .btn {
         background-color: #86A697;
