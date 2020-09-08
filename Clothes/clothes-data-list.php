@@ -89,16 +89,23 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
         background-color: #CDC;
     }
 
+<<<<<<< HEAD
+    
+=======
+>>>>>>> 3f60d63538792f17c7607a0f84292d604064220b
     .QAQ {
         /*將版面擠出左邊navbar */
         width: 15%;
-        height: 100%;
+        height: 100vh;
     }
 
     .concon {
         /*剩下的左邊版面*/
         width: 85%;
         height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
     }
 
     .conconcon {
@@ -111,7 +118,7 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
     /*以上為小專左邊頁面使用CSS*/
 </style>
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
-<div class="QAQ"></div>
+
 <div class="concon">
     <div class="nvb-flex conconcon">
 
