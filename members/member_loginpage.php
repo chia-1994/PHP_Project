@@ -1,6 +1,7 @@
 <?php
 $page_title = '登入';
-$page_name = 'member_loginpage'; 
+$page_name = 'member';
+$page_name1 = 'member_loginpage'; 
 require __DIR__ . '../../parts/__html_head.php'; ?>
 <style>
     .btn {

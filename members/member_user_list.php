@@ -1,6 +1,7 @@
 <?php
 $page_title = '會員列表';
-$page_name = 'member_list';
+$page_name = 'member';
+$page_name1 = 'member_list';
 require __DIR__ . '/connect_database.php';
 
 $id = $_SESSION['admin']['id'];

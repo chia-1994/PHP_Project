@@ -1,6 +1,7 @@
 <?php
 $page_title = '會員登入';
-$page_name = 'member_user_login';
+$page_name = 'member';
+$page_name1 = 'member_user_login';
 require __DIR__ . '/connect_database.php';
 ?>
 
@@ -21,8 +22,8 @@ require __DIR__ . '/connect_database.php';
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 <div class="container mr-5">
 
-    <button type="button" style="background-color:<?= $page_name == 'member_user_login' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name == 'member_user_login' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+    <button type="button" style="background-color:<?= $page_name1 == 'member_user_login' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name1 == 'member_user_login' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
         會員登入</button>
     <div class="row mt-5">
         <div class="col-6">

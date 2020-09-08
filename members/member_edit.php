@@ -1,6 +1,7 @@
 <?php
 $page_title = '會員更新';
-$page_name = 'member_edit';
+$page_name = 'member';
+$page_name1 = 'member_edit';
 require __DIR__ . '/connect_database.php';
 require __DIR__ . '../../parts/__html_head.php';
 
@@ -40,15 +41,15 @@ if (empty($row)) {
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
 <div class="container mr-5">
-    <button type="button" style="background-color:<?= $page_name == 'member_list' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-        <a href="member_list.php" style="color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
-    <button type="button" style="background-color:<?= $page_name == 'member_new' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-        <a href="member_new.php" style="color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>">新增</a></button>
-    <button type="button" style="background-color:<?= $page_name == 'member_edit' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name == 'member_edit' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-        <a href="#"" style=" color:<?= $page_name == 'member_edit' ? '#ffffff' : '#86A697' ?>">編輯</a></button>
+    <button type="button" style="background-color:<?= $page_name1 == 'member_list' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name1 == 'member_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_list.php" style="color:<?= $page_name1 == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
+    <button type="button" style="background-color:<?= $page_name1 == 'member_new' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name1 == 'member_new' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_new.php" style="color:<?= $page_name1 == 'member_new' ? '#ffffff' : '#86A697' ?>">新增</a></button>
+    <button type="button" style="background-color:<?= $page_name1 == 'member_edit' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name1 == 'member_edit' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="#"" style=" color:<?= $page_name1 == 'member_edit' ? '#ffffff' : '#86A697' ?>">編輯</a></button>
     <div class="row mt-2">
         <div class="card">
             <div class="card-body">

@@ -1,6 +1,7 @@
 <?php
 $page_title = '會員列表';
-$page_name = 'member_list';
+$page_name = 'member';
+$page_name1 = 'member_list';
 require __DIR__ . '/connect_database.php';
 
 $total_sql_str = "SELECT COUNT(*) FROM `members`";
@@ -73,12 +74,12 @@ if ($total_rows > 0) {
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
 <div class="container mr-5">
-    <button type="button" style="background-color:<?= $page_name == 'member_list' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-        <a href="member_list.php" style="color:<?= $page_name == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
-    <button type="button" style="background-color:<?= $page_name == 'member_new' ? '#86A697' : '#ffffff' ?> ;
-           border-color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
-        <a href="member_new.php" style="color:<?= $page_name == 'member_new' ? '#ffffff' : '#86A697' ?>">新增</a></button>
+    <button type="button" style="background-color:<?= $page_name1 == 'member_list' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name1 == 'member_list' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_list.php" style="color:<?= $page_name1 == 'member_list' ? '#ffffff' : '#86A697' ?>">會員列表</a></button>
+    <button type="button" style="background-color:<?= $page_name1 == 'member_new' ? '#86A697' : '#ffffff' ?> ;
+           border-color:<?= $page_name1 == 'member_new' ? '#ffffff' : '#86A697' ?>;" class="btn mt-1">
+        <a href="member_new.php" style="color:<?= $page_name1 == 'member_new' ? '#ffffff' : '#86A697' ?>">新增</a></button>
 
 
     <button type="button" style="background-color:#86A697;" class="btn mt-1">
