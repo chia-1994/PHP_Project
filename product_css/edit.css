@@ -1,87 +1,87 @@
 .errorpointer {
-    color: red;
+  color: red;
 }
 
 .errormsg {
-    color: red;
+  color: red;
 }
 
 .selectsize {
-    height: 41px;
+  height: 41px;
 }
 
 .nvb-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .astyle2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 180px;
-    height: 40px;
-    border-radius: 10px;
-    margin: 20px;
-    border: 2px solid #CDC;
-    text-align: center;
-    letter-spacing: 0.4em;
-    background-color: #fff;
-    color: #CDC;
-    font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 20px;
+  border: 2px solid #cdc;
+  text-align: center;
+  letter-spacing: 0.4em;
+  background-color: #fff;
+  color: #cdc;
+  font-size: 18px;
 }
 
 .astyle2:hover {
-    color: #FFF;
-    background-color: #CDC;
-    text-decoration: none;
+  color: #fff;
+  background-color: #cdc;
+  text-decoration: none;
 }
 
 .concon {
-    width: 85%;
-    height: 100vh;
-    position: fixed;
-    right: 0;
-    top: 0;
+  width: 85%;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 
 .tomid {
-    margin: 0 auto;
-    width: 500px;
+  margin: 0 auto;
+  width: 500px;
 }
 .alerttomid {
-    margin: 0 auto;
-    width: 500px;
-    text-align: center;       
+  margin: 0 auto;
+  width: 500px;
+  text-align: center;
 }
 
 .form-control {
-    border: 2px solid #CDC;
+  border: 2px solid #cdc;
 }
 
 .card {
-    /*蓋掉原BS效果*/
-    border: 0;
+  /*蓋掉原BS效果*/
+  border: 0;
 }
 
 div.card-body {
-    border: 2px solid #CDC;
-    border-radius: 25px;
+  border: 2px solid #cdc;
+  border-radius: 25px;
 }
 
 .btn-primary {
-    background-color: #CDC;
-    border-color: #CDC;
+  background-color: #cdc;
+  border-color: #cdc;
 }
 
 .btn-primary:hover {
-    background-color: #6d836d;
-    border-color: #6d836d;
+  background-color: #6d836d;
+  border-color: #6d836d;
 }
 .form-control:disabled {
-    background-color: #CDC;
-    color: #FFF;
+  background-color: #cdc;
+  color: #fff;
 }
 
 /*以上為小專左邊頁面使用CSS*/

@@ -14,7 +14,7 @@
         display: block;
         padding: 20px 0 0 0;
         position: absolute;
-        /* ALN將position改為absolute為讓dropdown不被蓋住 */
+
     }
 
     .nav-link {
@@ -35,15 +35,6 @@
         margin-top: 20px;
         justify-content: flex-start;
     }
-
-    .aa {
-        z-index: 9999999;
-    }
-
-    .dropdown-toggle{
-        /* ALN補的 */
-        cursor: pointer;
-    }
 </style>
 <div class="wrapper">
 
@@ -53,18 +44,10 @@
         <ul class="nav flex-column">
 
             <li class="nav-item">
-                <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">會員管理</a>
+                <a class="nav-link <?= $page_name == 'member_list' ? 'active' : '' ?>" href="../members/member_list.php">會員管理</a>
             </li>
-            <div class="nav-link dropright <?= $page_name == 'vendor-list' ? 'active' : '' ?>">
-                <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
-                    廠商管理
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="../vendor/vendor-list.php">廠商修改</a>
-                    <a class="dropdown-item" href="../vendor/vendor-insert2.php">新增廠商</a>
-
-                </div>
-            </div>
+            <li class="nav-item">
+                <a class="nav-link <?= $page_name == '##' ? 'active' : '' ?>" href="#">廠商管理</a>
             </li>
             <div class="nav-link dropright <?= $page_name == 'list_food' ? 'active' : '' ?>">
                 <a class="dropdown-toggle" data-toggle="dropdown" style="color: #FFFFFB">
