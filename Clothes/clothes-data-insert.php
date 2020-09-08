@@ -2,114 +2,20 @@
 $page_title = '資料新增';
 $page_name = 'data-insert';
 require __DIR__ . '/parts/__connect_db.php';
-
 ?>
 
-
-
 <?php include __DIR__ . '/../parts/__html_head.php' ?>
-<style>
-    .errormsg {
-        color: red;
-    }
-
-    .selectsize {
-        height: 41px;
-    }
-
-    /*以下為小專左邊頁面使用CSS*/
-    .nvb-flex {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .acolor {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 150px;
-        height: 40px;
-        border-radius: 10px;
-        margin: 20px;
-        border: 2px solid #CDC;
-        text-align: center;
-        letter-spacing: 0.4em;
-        background-color: #fff;
-        color: #CDC;
-        font-size: 18px;
-    }
-
-    .acolor:hover {
-        color: #FFF;
-        background-color: #CDC;
-        text-decoration: none;
-    }
-
-    .concon {
-        width: 85%;
-        height: 100vh;
-        /* background-color: #CFC; */
-    }
-
-    .QAQ {
-        width: 15%;
-        height: 100%;
-    }
-
-    .tomid {
-        margin: 0 auto;
-        width: 500px
-    }
-
-    .form-control {
-        border: 2px solid #CDC;
-    }
-
-    .card {
-        /*蓋掉原BS效果*/
-        border: 0;
-    }
-
-    div.card-body {
-        border: 2px solid #CDC;
-        border-radius: 25px;
-    }
-
-    .btn-primary {
-        background-color: #CDC;
-        border-color: #CDC;
-    }
-
-    .btn-primary:hover {
-        background-color: #6d836d;
-        border-color: #6d836d;
-    }
-
-    .hide {
-        background-color: #EEE;
-    }
-
-    .form-control:disabled {
-        background-color: #CDC;
-        color: #FFF;
-    }
-
-    /*以上為小專左邊頁面使用CSS*/
-</style>
+<link rel="stylesheet" href="./insert.css">
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
 <!-- `sid`, `gender`, `name`, `class`, `color`, `size`, `price`, `vendor`, `added_time` -->
 <!-- novalidate 此表單不做檢查   required 此欄必填 -->
-
-<!-- 以下為小專左邊頁面-->
+<!-- 以下為小專右邊頁面-->
 <div class="QAQ"></div>
 <div class="concon">
     <div class="nvb-flex">
-
         <a class="acolor" href="./clothes-data-list.php">資料列表</a>
-
         <a class="acolor" href="./clothes-data-insert.php">新增資料</a>
-        <!-- 以上為小專左邊頁面-->
+        <!-- 以上為小專右邊頁面-->
         <!-- 以下拿掉row & col-6 + 補上tomid-->
     </div>
     <div class="col">

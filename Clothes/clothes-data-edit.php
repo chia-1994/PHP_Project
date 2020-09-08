@@ -15,36 +15,26 @@ if(empty($row)){
     header('Location:clothes-data-list.php');
     exit;
 }
-
-
 ?>
 
-
-
 <?php include __DIR__ . '/../parts/__html_head.php' ?>
-<style>
-    .errorpointer {
-        color: red;
-    }
-
-    .errormsg {
-        color: red;
-    }
-
-    .selectsize {
-        height: 41px;
-    }
-</style>
+<link rel="stylesheet" href="./edit.css">
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
 <!-- `sid`, `gender`, `name`, `class`, `color`, `size`, `price`, `vendor`, `added_time` -->
 <!-- novalidate 此表單不做檢查   required 此欄必填 -->
-<div class="container">
+<!-- 以下為小專左邊頁面-->
+<div class="concon">
+    <div class="nvb-flex">
+        <a class="astyle2" href="./clothes-data-list.php">返回資料列表</a>
+    </div>
+        <!-- 以上為小專左邊頁面-->
+        <!-- 以下拿掉row & col-6 + 補上tomid-->
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col alerttomid">
             <div class="alert alert-success" role="alert" id="infobar" style="display:none">
-                新增成功
+                編輯成功
             </div>
-            <div class="card" style="width: 36rem;">
+            <div class="card tomid" style="width: 36rem;">
                 <div class="card-body">
                     <h5 class="card-title">編輯資料</h5>
                     <form name="form1" onsubmit="checkForm();return false;" novalidate>
@@ -98,6 +88,7 @@ if(empty($row)){
 </div>
 <?php include __DIR__ . '/../parts/__scripts.php' ?>
 <script>
+
     //所有必填的欄位
     const $gender = document.querySelector('#gender')
     const $name = document.querySelector('#name')
