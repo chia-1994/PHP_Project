@@ -1,7 +1,8 @@
 <?php
 $page_title = '會員新增';
 $page_name = 'member_new';
-require __DIR__ . '/connect_database.php'; ?>
+require __DIR__ . '/connect_database.php';
+require __DIR__ . '/member_admin_require.php'; ?>
 <?php require __DIR__ . '../../parts/__html_head.php'; ?>
 <style>
     span.red-stars {

@@ -89,7 +89,10 @@ if ($totalRows > 0) {  //如果有資料才做  還有一個轉向的作法
         background-color: #CDC;
     }
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> 3f60d63538792f17c7607a0f84292d604064220b
     .QAQ {
         /*將版面擠出左邊navbar */
         width: 15%;

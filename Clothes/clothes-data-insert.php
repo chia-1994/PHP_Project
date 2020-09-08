@@ -66,36 +66,36 @@ require __DIR__ . '/parts/__connect_db.php';
         border: 2px solid #CDC;
     }
 
-    .card{     /*蓋掉原BS效果*/
-        border: 0; 
+    .card {
+        /*蓋掉原BS效果*/
+        border: 0;
     }
 
-    div.card-body{
+    div.card-body {
         border: 2px solid #CDC;
         border-radius: 25px;
     }
-    .btn-primary{
+
+    .btn-primary {
         background-color: #CDC;
         border-color: #CDC;
     }
 
-    .btn-primary:hover{
-        background-color:#6d836d;
+    .btn-primary:hover {
+        background-color: #6d836d;
         border-color: #6d836d;
     }
 
-    .hide{
+    .hide {
         background-color: #EEE;
     }
 
-    .form-control:disabled{
+    .form-control:disabled {
         background-color: #CDC;
         color: #FFF;
     }
 
     /*以上為小專左邊頁面使用CSS*/
-
-
 </style>
 <?php include __DIR__ . '/../parts/__navbar.php' ?>
 <!-- `sid`, `gender`, `name`, `class`, `color`, `size`, `price`, `vendor`, `added_time` -->
