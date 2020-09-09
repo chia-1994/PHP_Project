@@ -15,11 +15,126 @@ require __DIR__ . '/parts/__course_connect_db.php';
     }
 
     small.error-msg {
-        color: red;
+        color: #969696;
     }
 
     .col-lg-12 {
         margin-top: 20px;
+    }
+
+
+
+
+    .errormsg {
+        color: red;
+    }
+
+    .selectsize {
+        height: 41px;
+    }
+
+    .nvb-flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .astyle3now {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        margin: 20px;
+        border: 2px solid #CDC;
+        text-align: center;
+        letter-spacing: 0.4em;
+        background-color: #CDC;
+        color: #FFF;
+        font-size: 18px;
+    }
+
+    .astyle3now:hover {
+        color: #CDC;
+        background-color: #FFF;
+        text-decoration: none;
+    }
+
+    .astyle3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        margin: 20px;
+        border: 2px solid #CDC;
+        text-align: center;
+        letter-spacing: 0.4em;
+        background-color: #fff;
+        color: #CDC;
+        font-size: 18px;
+    }
+
+    .astyle3:hover {
+        color: #FFF;
+        background-color: #CDC;
+        text-decoration: none;
+    }
+
+    .concon {
+        width: 85%;
+        height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+
+    .tomid {
+        margin: 0 auto;
+        width: 500px
+    }
+
+    .form-control {
+        border: 2px solid #CDC;
+    }
+
+    .card {
+        /*蓋掉原BS效果*/
+        border: 0;
+    }
+
+    div.card-body {
+        border: 2px solid #CDC;
+        border-radius: 25px;
+    }
+
+    .btn.btn-primary.col-lg-12 {
+        color: black;
+        background-color: #CDC;
+        border-color: #CDC;
+    }
+
+    .btn.btn-primary.col-lg-12:hover {
+        background-color: #6d836d;
+        border-color: #6d836d;
+    }
+
+    .btn.btn-primary2.col-lg-12 {
+        background-color: #CDC;
+        border-color: #CDC;
+    }
+
+    .btn.btn-primary2.col-lg-12:hover {
+        background-color: #6d836d;
+        border-color: #6d836d;
+    }
+
+
+    .form-control:disabled {
+        background-color: #CDC;
+        color: #FFF;
     }
 </style>
 
@@ -91,7 +206,7 @@ require __DIR__ . '/parts/__course_connect_db.php';
                                     <button type="submit" class="btn btn-primary col-lg-12">送出新增</button>
                                 </div>
                                 <div class="col">
-                                    <button type="submit" class="btn btn-warning col-lg-12" onclick="self.location.href='course-data-list.php'" style="text-decoration:none;color:black;">取消新增</button>
+                                    <button type="submit" class="btn btn-primary2 col-lg-12" onclick="self.location.href='course-data-list.php'" style="text-decoration:none;color:black;">取消新增</button>
                                 </div>
                             </div>
                         </form>
@@ -100,7 +215,7 @@ require __DIR__ . '/parts/__course_connect_db.php';
             </div>
         </div>
         <div class="col-lg-12">
-            <div id="infobar" class="alert alert-success" role="alert" text-align="center" style="display: none"></div>
+            <div id="infobar" class="alert alert-success" role="alert" style="display: none"></div>
         </div>
     </div>
 </div>
@@ -131,58 +246,58 @@ require __DIR__ . '/parts/__course_connect_db.php';
         // TODO: 檢查資料格式
         if ($teacher.value.length < 2) {
             isPass = false;
-            $teacher.style.borderColor = 'red';
+            $teacher.style.borderColor = '#969696';
             $teacher.nextElementSibling.innerHTML = '請填寫講師姓名';
             infobar.style.display = 'block';
-            infobar.innerHTML = '請輸入紅框必填項目，若資訊不齊全，表單不會送出，請先按「取消新增」';
-            infobar.className = "alert alert-danger";
+            infobar.innerHTML = '請逐一輸入必填項目，若資訊不齊全，表單不會送出，請先按「取消新增」';
+            infobar.className = "alert alert-success";
         }
 
         if ($course_name.value.length < 2) {
             isPass = false;
-            $course_name.style.borderColor = 'red';
+            $course_name.style.borderColor = '#969696';
             $course_name.nextElementSibling.innerHTML = '請填寫課程名稱';
         }
 
         if ($course_type.value.length < 2) {
             isPass = false;
-            $course_type.style.borderColor = 'red';
+            $course_type.style.borderColor = '#969696';
             $course_type.nextElementSibling.innerHTML = '請填寫課程類型';
         }
 
         if ($date.value.length < 2) {
             isPass = false;
-            $date.style.borderColor = 'red';
+            $date.style.borderColor = '#969696';
             $date.nextElementSibling.innerHTML = '請填寫課程日期';
         }
 
         if ($course_time.value.length < 2) {
             isPass = false;
-            $course_time.style.borderColor = 'red';
+            $course_time.style.borderColor = '#969696';
             $course_time.nextElementSibling.innerHTML = '請填寫上課時間';
         }
 
         if ($place.value.length < 2) {
             isPass = false;
-            $place.style.borderColor = 'red';
+            $place.style.borderColor = '#969696';
             $place.nextElementSibling.innerHTML = '請填寫上課地點';
         }
 
         if ($members.value.length < 2) {
             isPass = false;
-            $members.style.borderColor = 'red';
+            $members.style.borderColor = '#969696';
             $members.nextElementSibling.innerHTML = '請填寫人數限制';
         }
 
         if ($price.value.length < 2) {
             isPass = false;
-            $price.style.borderColor = 'red';
+            $price.style.borderColor = '#969696';
             $price.nextElementSibling.innerHTML = '請填寫課程費用';
         }
 
         if ($on_sale.value.length < 2) {
             isPass = false;
-            $on_sale.style.borderColor = 'red';
+            $on_sale.style.borderColor = '#969696';
             $on_sale.nextElementSibling.innerHTML = '請填寫課程狀態';
         }
 
