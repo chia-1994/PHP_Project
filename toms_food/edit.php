@@ -43,11 +43,12 @@ if (empty($row)) {
     <div class="row">
         <div class="col">
 
-            <div id="infobar" class="alert alert-success" role="alert" style="display: none">
-                A simple success alert—check it out!
-            </div>
 
             <div class="tomid">
+
+                <div id="infobar" class="alert alert-success" role="alert" style="display: none">
+                    A simple success alert—check it out!
+                </div>
 
                 <div class="card-body">
                     <h5 class="card-title">修改資料</h5>

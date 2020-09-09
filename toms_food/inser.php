@@ -18,50 +18,52 @@ require __DIR__ . '../../parts/connect.php';
 </style>
 <?php include __DIR__ . '../../parts/__navbar.php'; ?>
 
-<div class="col mb-5 concon">
+<div class=" concon">
     <div class="nvb-flex">
-        <a class="acolor " href="list.php">資料列表</a>
-        <a class="acolor inser" href="inser.php">新增資料</a>
+        <a class="astyle3 " href="list.php">資料列表</a>
+        <a class="astyle3now " href="inser.php">新增資料</a>
     </div>
 
+    <div class="col">
 
-    <div id="infobar" class="alert alert-success" role="alert" style="display: none">
-        A simple success alert—check it out!
-    </div>
+        <div class="card  tomid">
+            <div id="infobar" class="alert alert-success" role="alert" style="display: none">
+                A simple success alert—check it out!
+            </div>
 
-    <div class="card  tomid">
-        <div class="card-body">
-            <h5 class="card-title">新增資料</h5>
+            <div class="card-body">
+                <h5 class="card-title">新增資料</h5>
 
-            <form name="form1" onsubmit="checkForm(); return false; novalidate">
-                <div class="form-group">
-                    <label for="name"><span class="red-stars">**</span>產品名稱</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                    <small class="form-text error-msg"></small>
-                </div>
-                <div class="form-group">
-                    <label for="price"><span class="red-stars">**</span>價格</label>
-                    <input type="int" class="form-control" id="price" name="price">
-                    <small class="form-text error-msg"></small>
-                </div>
-                <div class="form-group">
-                    <label for="MD"><span class="red-stars">**</span>製造日期</label>
-                    <input type="date" class="form-control" id="MD" name="MD">
-                    <small class="form-text error-msg"></small>
-                </div>
-                <div class="form-group">
-                    <label for="expried"><span class="red-stars">**</span>使用期限</label>
-                    <input type="date" class="form-control" id="expried" name="expried">
-                    <small class="form-text error-msg"></small>
-                </div>
-                <div class="form-group">
-                    <label for="firm"><span class="red-stars">**</span>上架廠商</label>
-                    <input type="text" class="form-control" name="firm" id="firm"></input>
-                    <small class="form-text error-msg"></small>
-                </div>
+                <form name="form1" onsubmit="checkForm(); return false; novalidate">
+                    <div class="form-group">
+                        <label for="name"><span class="red-stars">**</span>產品名稱</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                        <small class="form-text error-msg"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="price"><span class="red-stars">**</span>價格</label>
+                        <input type="int" class="form-control" id="price" name="price">
+                        <small class="form-text error-msg"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="MD"><span class="red-stars">**</span>製造日期</label>
+                        <input type="date" class="form-control" id="MD" name="MD">
+                        <small class="form-text error-msg"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="expried"><span class="red-stars">**</span>使用期限</label>
+                        <input type="date" class="form-control" id="expried" name="expried">
+                        <small class="form-text error-msg"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="firm"><span class="red-stars">**</span>上架廠商</label>
+                        <input type="text" class="form-control" name="firm" id="firm"></input>
+                        <small class="form-text error-msg"></small>
+                    </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

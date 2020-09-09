@@ -64,6 +64,7 @@ require __DIR__ . '../../parts/connect.php';
 <script>
     const tbody = document.querySelector('tbody')
 
+
     const hashHandler = function() {
         // 不要#字號 所以從 索引1 開始切 (location  是指 網站的url)
         // 如果轉換為數字是 nan 就 設定為 1 
@@ -137,6 +138,7 @@ require __DIR__ . '../../parts/connect.php';
             .then(r => r.json())
             .then(obj => {
                 showDataFromApi(obj);
+
             })
 
 
@@ -206,7 +208,7 @@ require __DIR__ . '../../parts/connect.php';
             if (obj.page === obj.totalPages) {
                 // 如果是在最後一頁 按鈕就不能按
                 ptr += `<li class="page-item  disabled">
-                    <a class="page-link Paginationcolor" href="#${obj.page}">下一頁</a>
+                    <a class="page-link Paginationcolor" href="#">下一頁</a>
                     </li>`
             } else {
                 ptr += `<li class="page-item ">
@@ -216,7 +218,7 @@ require __DIR__ . '../../parts/connect.php';
             // 如果是在最後一頁 按鈕就不能按
             if (obj.page === obj.totalPages) {
                 ptr += `<li class="page-item  disabled">
-                    <a class="page-link" href="#${obj.page-1}">最後一頁</a>
+                    <a class="page-link" href="#">最後一頁</a>
                     </li>`
             } else {
                 ptr += `<li class="page-item ">

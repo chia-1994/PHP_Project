@@ -28,7 +28,8 @@ if ($search) {
     $t_sql = "SELECT COUNT(1) FROM `shop_list` $where";
     // 總共有幾筆
 } else {
-    $t_sql = "SELECT COUNT(1) FROM `shop_list` WHERE unix_timestamp(expried) > unix_timestamp(now())  ";
+    // $t_sql = "SELECT COUNT(1) FROM `shop_list` WHERE unix_timestamp(expried) > unix_timestamp(now())
+    $t_sql = "SELECT COUNT(1) FROM `shop_list`  ";
     // 總共有幾筆
 }
 
@@ -50,8 +51,8 @@ if ($totalRows > 0) {
     $output['page']  = $page;                           //從0開始 拿五筆
     // sql = 篩選到 全部的資料    第一頁 LIMIT = 1-1*5 拿五筆 =0~5 以此類推
     // 塞選過期時間
-    $sql = sprintf("SELECT * FROM `shop_list` WHERE unix_timestamp(expried) > unix_timestamp(now())  ORDER BY sid DESC LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
-
+    // $sql = sprintf("SELECT * FROM `shop_list` WHERE unix_timestamp(expried) > unix_timestamp(now())  ORDER BY sid DESC LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
+    $sql = sprintf("SELECT * FROM `shop_list` ORDER BY sid DESC LIMIT %s, %s", ($page - 1) * $perPage, $perPage);
     $sql2 = sprintf("SELECT * FROM `shop_list` %s LIMIT %s, %s", $where, ($page - 1) * $perPage, $perPage);
     //stmt = 拿sql 的 筆數  (ex limit 0,5 從第0筆開始 撈五筆)
     $stmt = '';
