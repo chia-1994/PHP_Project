@@ -30,7 +30,6 @@ if ($totalRows > 0) {
 
 ?>
 
-
 <?php require __DIR__ . './parts/__html_head.php'; ?>
 <?php include __DIR__ . './parts/__course_navbar.php'; ?>
 <style>
