@@ -7,7 +7,7 @@ require __DIR__ . '/parts/__course_connect_db.php';
 <?php require __DIR__ . '/parts/__html_head.php'; ?>
 <style>
     .container {
-        margin: 50px 400px;
+        margin: 50px 400px 300px 300px;
     }
 
     span.red-stars {
@@ -17,15 +17,16 @@ require __DIR__ . '/parts/__course_connect_db.php';
     small.error-msg {
         color: red;
     }
+
+    .col-lg-12 {
+        margin-top: 20px;
+    }
 </style>
 
 <?php include __DIR__ . '/parts/__course_navbar.php'; ?>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <div id="infobar" class="alert alert-success" role="alert" style="display: none">
-                新增成功!
-            </div>
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">新增課程</h5>
@@ -80,25 +81,26 @@ require __DIR__ . '/parts/__course_connect_db.php';
                             <small class="form-text error-msg"></small>
                         </div>
 
-
                         <div class="form-group">
                             <label for="introduction">課程簡介</label>
                             <textarea class=" form-control" name="introduction" id="introduction" cols="30" rows="3" placeholder="請摘要輸入廣宣或新聞稿內容"></textarea>
                         </div>
-
                         <form>
                             <div class="row">
                                 <div class="col">
                                     <button type="submit" class="btn btn-primary col-lg-12">送出新增</button>
                                 </div>
                                 <div class="col">
-                                    <button type="submit" class="btn btn-warning col-lg-12"><a href="course-data-list.php" target="_self" style="text-decoration:none;color:black;">取消新增</a></button>
+                                    <button type="submit" class="btn btn-warning col-lg-12" onclick="self.location.href='course-data-list.php'" style="text-decoration:none;color:black;">取消新增</button>
                                 </div>
                             </div>
                         </form>
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="col-lg-12">
+            <div id="infobar" class="alert alert-success" role="alert" text-align="center" style="display: none"></div>
         </div>
     </div>
 </div>
@@ -125,12 +127,15 @@ require __DIR__ . '/parts/__course_connect_db.php';
             el.style.borderColor = '#cccccc';
             el.nextElementSibling.innerHTML = '';
         });
-        submitBtn.style.display = 'none';
+        // submitBtn.style.display = 'none';
         // TODO: 檢查資料格式
         if ($teacher.value.length < 2) {
             isPass = false;
             $teacher.style.borderColor = 'red';
             $teacher.nextElementSibling.innerHTML = '請填寫講師姓名';
+            infobar.style.display = 'block';
+            infobar.innerHTML = '請輸入紅框必填項目，若資訊不齊全，表單不會送出，請先按「取消新增」';
+            infobar.className = "alert alert-danger";
         }
 
         if ($course_name.value.length < 2) {
@@ -181,6 +186,10 @@ require __DIR__ . '/parts/__course_connect_db.php';
             $on_sale.nextElementSibling.innerHTML = '請填寫課程狀態';
         }
 
+        // infobar.style.display = 'block';
+        // infobar.innerHTML = '請輸入紅框必填項目，若資訊不齊全，表單不會送出，請先按「取消新增」';
+        // infobar.className = "alert alert-danger";
+
         if (isPass) {
             const fd = new FormData(document.form1);
 
@@ -199,7 +208,7 @@ require __DIR__ . '/parts/__course_connect_db.php';
                         // }
                         setTimeout(() => {
                             location.href = 'course-data-list.php';
-                        }, 3000)
+                        }, 1500)
                     } else {
                         infobar.innerHTML = obj.error || '新增失敗';
                         infobar.className = "alert alert-danger";
