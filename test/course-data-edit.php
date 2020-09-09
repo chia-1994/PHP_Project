@@ -36,7 +36,6 @@ if (empty($row)) {
 
 
 
-
     .errormsg {
         color: red;
     }
