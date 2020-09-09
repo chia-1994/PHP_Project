@@ -60,7 +60,7 @@ $row = $pdo->query($data_sql)->fetch();
         <div class="astylename" href="member_list.php"><?= $row['name'] ?></div>
         <a class="astyle" href="member_user_login.php">登出</a>
     </div>
-    <table class="table table-striped conconcon">
+    <table class="table table-striped conconcon table-overflow">
         <thead>
             <tr>
                 <th scope="col">姓名</th>

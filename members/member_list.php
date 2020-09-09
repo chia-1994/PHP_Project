@@ -86,7 +86,7 @@ if ($total_rows > 0) {
 
 
     <!-- <div class="row mt-2"> -->
-    <table class="table table-striped conconcon">
+    <table class="table table-striped conconcon table-overflow">
         <thead>
             <tr>
                 <th scope="col">#</th>
