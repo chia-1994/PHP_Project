@@ -6,7 +6,7 @@ require __DIR__ . '/connect_database.php';
 
 $total_sql_str = "SELECT COUNT(*) FROM `members`";
 
-$per_page = 3;
+$per_page = 5;
 
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
@@ -71,7 +71,7 @@ if ($total_rows > 0) {
         border-color: #ddd;
     }
 </style>
-<link rel="stylesheet" href="style_right.css">
+<link rel="stylesheet" href="member_style.css">
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
 <div class="concon">
@@ -79,7 +79,7 @@ if ($total_rows > 0) {
         <a class="astylenow" href="member_list.php">會員列表</a>
         <a class="astyle" href="member_new.php">新增</a>
         <div class="astylename" href="member_list.php"><?= $_SESSION['admin']['name'] ?></div>
-        <a class="astyle" href="member_manage_login.php">登出</a>
+        <a class="astyle" href="member_manage_logout.php">登出</a>
     </div>
 
 

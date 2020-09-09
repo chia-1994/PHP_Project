@@ -38,13 +38,13 @@ if (empty($row)) {
         color: #ffffff;
     }
 </style>
-<link rel="stylesheet" href="style_right.css">
+<link rel="stylesheet" href="member_style.css">
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
 
 
 
-<div class="concon">
+<div class="concon table-overflow">
     <div class="nvb-flex conconcon col-6">
         <a class="astyle" href="member_user_list.php">會員列表</a>
         <div class="astylename" href="#">編輯</div>

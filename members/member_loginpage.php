@@ -16,7 +16,7 @@ require __DIR__ . '../../parts/__html_head.php'; ?>
         color: #ffffff;
     }
 </style>
-<link rel="stylesheet" href="style_right.css">
+<link rel="stylesheet" href="member_style.css">
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 <div class="concon">
     <div class=" conconcon">

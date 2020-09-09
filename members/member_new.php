@@ -3,7 +3,9 @@ $page_title = '會員新增';
 $page_name = 'member';
 $page_name1 = 'member_new';
 require __DIR__ . '/connect_database.php';
-require __DIR__ . '/member_admin_require.php'; ?>
+
+
+?>
 <?php require __DIR__ . '../../parts/__html_head.php'; ?>
 <style>
     span.red-stars {
@@ -40,11 +42,11 @@ require __DIR__ . '/member_admin_require.php'; ?>
         color: #ffffff;
     }
 </style>
-<link rel="stylesheet" href="style_right.css">
+<link rel="stylesheet" href="member_style.css">
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
-<div class="concon">
+<div class="concon table-overflow">
     <div class="nvb-flex conconcon col-6">
-        <div class="astylename" href="member_new.php">新增</div>
+        <div class="astylename">新增</div>
 
     </div>
     <div class="col-6  conconcon">

@@ -52,13 +52,13 @@ $row = $pdo->query($data_sql)->fetch();
         border-color: #ddd;
     }
 </style>
-<link rel="stylesheet" href="style_right.css">
+<link rel="stylesheet" href="member_style.css">
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
 <div class="concon">
     <div class="nvb-flex conconcon">
         <div class="astylename" href="member_list.php"><?= $row['name'] ?></div>
-        <a class="astyle" href="member_user_login.php">登出</a>
+        <a class="astyle" href="member_user_logout.php">登出</a>
     </div>
     <table class="table table-striped conconcon table-overflow">
         <thead>

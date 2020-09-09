@@ -19,7 +19,7 @@ require __DIR__ . '/connect_database.php';
         border-color: #26453D;
     }
 </style>
-<link rel="stylesheet" href="style_right.css">
+<link rel="stylesheet" href="member_style.css">
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 <div class="concon">
     <div class="nvb-flex conconcon col-6">

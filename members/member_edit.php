@@ -38,20 +38,20 @@ if (empty($row)) {
         color: #ffffff;
     }
 </style>
-<link rel="stylesheet" href="style_right.css">
+<link rel="stylesheet" href="member_style.css">
 <?php require __DIR__ . '../../parts/__navbar.php'; ?>
 
 
 
 
-<div class="concon">
+<div class="concon table-overflow">
     <div class="nvb-flex conconcon col-6">
         <a class="astyle" href="member_list.php">會員列表</a>
         <a class="astyle" href="member_new.php">新增</a>
         <a class="astylenow" href="#">編輯</a>
     </div>
-    <div class="col-6  conconcon">
-        <div class="card tomid">
+    <div class="col-6  conconcon ">
+        <div class="card tomid ">
             <div class="card-body">
                 <h5 class="card-title">資料更新</h5>
                 <form id="member_form" name="member_form" onsubmit="checkForm(); return false;" novalidate>

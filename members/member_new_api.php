@@ -59,6 +59,7 @@ $sql->execute([
 
 if ($sql->rowCount()) {
     $output['success'] = true;
+    // $_SESSION['admin'] = $sql->fetch();
 }
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
