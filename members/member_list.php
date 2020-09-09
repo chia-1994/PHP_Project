@@ -112,7 +112,24 @@ if ($total_rows > 0) {
                     <td><?= $r['pwd'] ?></td>
                     <td><?= $r['id_number'] ?></td>
                     <td><?= $r['tel'] ?></td>
-                    <td><?= $r['gender'] ?></td>
+                    <?php switch ($r['gender']) {
+                        case $r['gender'] == 1:
+                            $a = '男';
+                            break;
+
+                        case $r['gender'] == 2:
+                            $a = '女';
+                            break;
+
+                        case $r['gender'] == 3:
+                            $a = '不提供';
+                            break;
+
+                        default:
+                            $a = '未填寫';
+                    } ?>
+                    <td id="gender"><?= $a ?></td>
+
                     <td><?= $r['birth'] ?></td>
                     <td><?= $r['address'] ?></td>
                     <td><?= $r['level'] ?></td>
@@ -170,5 +187,13 @@ if ($total_rows > 0) {
             event.preventDefault();
         }
     };
+    // const gen = document.querySelector('#gender').innerText
+    // if (gen == 1) {
+    //     document.querySelector('#gender').innerHTML = '男'
+    // } else if (gen == 2) {
+    //     document.querySelector('#gender').innerHTML = '女'
+    // } else if (gen == 3) {
+    //     document.querySelector('#gender').innerHTML = '不提供'
+    // }
 </script>
 <?php require __DIR__ . '../../parts/__html_foot.php'; ?>

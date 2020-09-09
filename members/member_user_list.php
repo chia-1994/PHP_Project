@@ -82,7 +82,23 @@ $row = $pdo->query($data_sql)->fetch();
                 <td><?= $row['pwd'] ?></td>
                 <td><?= $row['id_number'] ?></td>
                 <td><?= $row['tel'] ?></td>
-                <td><?= $row['gender'] ?></td>
+                <?php switch ($row['gender']) {
+                    case $row['gender'] == 1:
+                        $a = '男';
+                        break;
+
+                    case $row['gender'] == 2:
+                        $a = '女';
+                        break;
+
+                    case $row['gender'] == 3:
+                        $a = '不提供';
+                        break;
+
+                    default:
+                        $a = '未填寫';
+                } ?>
+                <td id="gender"><?= $a ?></td>
                 <td><?= $row['birth'] ?></td>
                 <td><?= $row['address'] ?></td>
                 <td><?= $row['level'] ?></td>

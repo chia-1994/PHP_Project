@@ -56,7 +56,7 @@ $sql_str = "UPDATE `members` SET
     `gender`=?, 
     `birth`=?, 
     `address`=?, 
-    `level`=?
+    `level`=null
     WHERE `id`=?";
 
 
@@ -71,7 +71,6 @@ $sql->execute([
     $_POST['gender'],
     $_POST['birth'],
     $_POST['address'],
-    $_POST['level'],
     $_POST['id'],
 ]);
 
