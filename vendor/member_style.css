@@ -1,0 +1,164 @@
+/*以下為小專右邊頁面使用CSS*/
+.trashcolor {
+  color: #cdc;
+  cursor: pointer;
+}
+
+.editcolor {
+  color: #cdc;
+  cursor: pointer;
+}
+
+.Paginationcolor {
+  color: #cdc;
+}
+
+.page-item.active .page-link {
+  background-color: #cdc;
+  border-color: #cdc;
+}
+
+.nvb-flex {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.astyle {
+  /*整個按鍵*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 20px 10px 20px 0;
+  border: 2px solid #cdc;
+  text-align: center;
+  letter-spacing: 0.4em;
+  background-color: #fff;
+  color: #cdc;
+  font-size: 18px;
+}
+.right {
+  position: absolute;
+  right: 0;
+}
+
+.astyle:hover {
+  color: #fff;
+  background-color: #cdc;
+  text-decoration: none;
+}
+
+.nvb-flex {
+  display: flex;
+}
+
+.astylenow {
+  /*整個按鍵*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 20px 10px 20px 0;
+  border: 2px solid #cdc;
+  text-align: center;
+  letter-spacing: 0.4em;
+  background-color: #cdc;
+  color: #fff;
+  font-size: 18px;
+}
+.astyle {
+  /*整個按鍵*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 20px 10px 20px 0;
+  border: 2px solid #cdc;
+  text-align: center;
+  letter-spacing: 0.4em;
+  background-color: #fff;
+  color: #cdc;
+  font-size: 18px;
+}
+.astylename {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 20px 10px 20px 0;
+  border: 2px solid #cdc;
+  text-align: center;
+  letter-spacing: 0.4em;
+  background-color: #cdc;
+  color: #fff;
+  font-size: 18px;
+}
+
+.astylenow:hover {
+  color: #cdc;
+  background-color: #fff;
+  text-decoration: none;
+}
+.astyle:hover {
+  color: #fff;
+  background-color: #cdc;
+  text-decoration: none;
+}
+
+.page-item:hover .page-link {
+  color: #fff;
+  background-color: #cdc;
+}
+
+
+/* .QAQ {
+            將版面擠出右邊navbar
+            width: 15%;
+            height: 100vh;
+        } */
+
+.concon {
+  /*剩下的右邊版面*/
+  width: 85%;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.conconcon {
+  position: relative;
+  /*剩下左邊版面的80%為列表範圍 預留左右+置中*/
+  width: 80%;
+  margin: 0 auto;
+}
+/*以上為小專右邊頁面使用CSS*/
+
+.conconcon {
+  /*剩下左邊版面的80%為列表範圍 預留左右+置中*/
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.ed {
+  margin: 20px 0 20px 0;
+  position: absolute;
+  right: 0;
+}
+/*以上為小專右邊頁面使用CSS*/
+.table-overflow {
+  overflow-y: auto;
+}
+.tomid {
+  margin-bottom: 20px;
+}

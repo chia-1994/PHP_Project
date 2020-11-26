@@ -4,45 +4,70 @@ $page_name = 'vendor-list';
 require __DIR__ . '/connect_db.php';
 ?>
 <?php require __DIR__ . '../../parts/__html_head.php'; ?>
+    <link rel="stylesheet" href="../product_css/list.css">
 <?php include __DIR__ . '../../parts/__navbar.php'; ?>
 
-    <div class="container">
+<style>
 
-<!--        <button type="button" style="background-color: #26453D" class="btn btn-info mt-1 --><?//= $page_name == 'vendor-list' ? 'active' : '' ?><!--"><a href="vendor-list.php">廠商列表</a></button>-->
-<!--        <button type="button" class="btn btn-info mt-1 --><?//= $page_name == 'vendor-insert2' ? 'active' : '' ?><!--"><a href="vendor-insert2.php">加入廠商</a></button>-->
-
-
-
-    <div class="row" style="padding-left: 100px;">
-        <table class="table table-striped">
-
-            <thead>
-            <tr>
-                <th scope="col"><i class="fas fa-trash-alt"></i></th>
-                <th scope="col">#</th>
-                <th scope="col">廠商名稱</th>
-                <th scope="col">地址</th>
-                <th scope="col">電話</th>
-                <th scope="col">信箱</th>
-                <th scope="col">統一編號</th>
-                <th scope="col">聯絡人</th>
-            </tr>
-            </thead>
-    </div>
-            <tbody>
+    .wrap{
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav-a{
+        display: inline-block;
+    }
 
 
-            </tbody>
-        </table>
-        <div class="row">
+</style>
+
+    <div class="concon">
+        <div class="nvb-flex conconcon">
+            <div class="wrap">
+                <div class="control-link">
+                    <a class="astylenow nav-a" href="vendor-list.php">廠商列表</a>
+                    <a class="astyle nav-a" href="vendor-insert2.php">新增</a>
+                </div>
+
+
+                <div class="control-link">
+                    <?php if(isset($_SESSION['admin'])): ?>
+
+                        <a class="nav-link nav-a"><?= $_SESSION['admin']['vendor_name'] ?></a>
+
+                        <a class="nav-link nav-a" style="background-color: #CCDDCC" href="vendor-logout.php">登出</a>
+
+                    <?php endif; ?>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <div class="conconcon">
+            <div class="row" style="width: 80%; margin-left: auto; margin-right: auto">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                    <th scope="col"><i class="fas fa-trash-alt"></i></th>
+                    <th scope="col">#</th>
+                    <th scope="col">廠商名稱</th>
+                    <th scope="col">地址</th>
+                    <th scope="col">電話</th>
+                    <th scope="col">信箱</th>
+                    <th scope="col">統一編號</th>
+                    <th scope="col">聯絡人</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
             <div class="col d-flex justify-content-center">
                 <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-
-
+                    <ul class="pagination Paginationcolor">
                     </ul>
                 </nav>
-
             </div>
         </div>
     </div>
@@ -51,7 +76,7 @@ require __DIR__ . '/connect_db.php';
     <?php include __DIR__ . '../../parts/__scripts.php'; ?>
     <script>
         const tbody = document.querySelector('tbody')
-        let pageData;
+
         const hashHandler = function() {
             // 不要#字號 所以從 索引1 開始切 (location  是指 網站的url)
             // 如果轉換為數字是 nan 就 設定為 1
@@ -69,7 +94,7 @@ require __DIR__ . '/connect_db.php';
         const pageItemTpl = (obj) => {
             // 設置一個 pageItemTpl 函數 顯示按鈕
             return `<li class="page-item ${obj.active}">
-                    <a class="page-link" href="#${obj.page}">${obj.page}</a>
+                    <a class="page-link Paginationcolor" href="#${obj.page}">${obj.page}</a>
                     </li>`
         }
 
@@ -78,8 +103,8 @@ require __DIR__ . '/connect_db.php';
             return `
 
                     <tr>
-                    <td><a href="vendor-delete.php?sid=${obj.sid}" onclick="ifDel(event)" data-sid="${obj.sid}">
-                    <i class="fas fa-trash-alt"></i>
+                    <td><a href="vendor-delete.php?sid=${obj.sid}" onclick="ifDel(event)" data-sid="${obj.sid}" >
+                    <i class="fas fa-trash-alt trashcolor"></i>
                 </a></td>
                 <td>${obj.sid}</td>
                 <td>${obj.vendor_name}</td>
@@ -88,7 +113,7 @@ require __DIR__ . '/connect_db.php';
                 <td>${obj.email}</td>
                 <td>${obj.tax_ID_number}</td>
                 <td>${obj.contact_person}</td>
-                <td><a href="vendor-edit.php?sid=${obj.sid}"><i class="fas fa-edit"></i></a></td>
+                <td><a href="vendor-edit.php?sid=${obj.sid}"><i class="fas fa-edit editcolor"></i></a></td>
 
 
                 `;
@@ -108,7 +133,7 @@ require __DIR__ . '/connect_db.php';
                 .then(r => r.json())
                 .then(obj => {
                         console.log(obj);
-                        pageData = obj;
+
 
                         let str = '';
                         for (let i of obj.rows) {
@@ -121,11 +146,11 @@ require __DIR__ . '/connect_db.php';
                         if (obj.page === 1) {
                             // 如果是在第一頁 按鈕就不能按
                             str += `<li class="page-item  disabled">
-                    <a class="page-link" href="#${obj.page}">第一頁</a>
+                    <a class="page-link Paginationcolor" href="#${obj.page}">第一頁</a>
                     </li>`
                         } else {
                             str += `<li class="page-item ">
-                    <a class="page-link" href="#${obj.page==1}">第一頁</a>
+                    <a class="page-link Paginationcolor" href="#${obj.page==1}">第一頁</a>
                     </li>`
                         }
 
@@ -133,11 +158,11 @@ require __DIR__ . '/connect_db.php';
                         if (obj.page === 1) {
                             // 如果是在第一頁 按鈕就不能按
                             str += `<li class="page-item  disabled">
-                    <a class="page-link" href="#${obj.page-1}">上一頁</a>
+                    <a class="page-link Paginationcolor" href="#${obj.page-1}">上一頁</a>
                     </li>`
                         } else {
                             str += `<li class="page-item ">
-                    <a class="page-link" href="#${obj.page-1}">上一頁</a>
+                    <a class="page-link Paginationcolor" href="#${obj.page-1}">上一頁</a>
                     </li>`
                         }
 
@@ -161,21 +186,21 @@ require __DIR__ . '/connect_db.php';
                         if (obj.page === obj.totalPages) {
                             // 如果是在最後一頁 按鈕就不能按
                             str += `<li class="page-item  disabled">
-                    <a class="page-link" href="#${obj.page}">下一頁</a>
+                    <a class="page-link Paginationcolor" href="#${obj.page}">下一頁</a>
                     </li>`
                         } else {
                             str += `<li class="page-item ">
-                    <a class="page-link" href="#${obj.page+1}">下一頁</a>
+                    <a class="page-link Paginationcolor" href="#${obj.page+1}">下一頁</a>
                     </li>`
                         }
                         // 如果是在最後一頁 按鈕就不能按
                         if (obj.page === obj.totalPages) {
                             str += `<li class="page-item  disabled">
-                    <a class="page-link" href="#${obj.page-1}">最後一頁</a>
+                    <a class="page-link Paginationcolor" href="#${obj.page-1}">最後一頁</a>
                     </li>`
                         } else {
                             str += `<li class="page-item ">
-                    <a class="page-link" href="#${obj.totalPages}">最後一頁</a>
+                    <a class="page-link Paginationcolor" href="#${obj.totalPages}">最後一頁</a>
                     </li>`
                         }
 

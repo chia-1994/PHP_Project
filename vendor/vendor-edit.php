@@ -4,7 +4,7 @@ $page_name = 'vendor-edit';
 // 與資料庫連線
 require __DIR__ . '/connect_db.php';
 ?>
-<?php include __DIR__ . '../../parts/__navbar.php'; ?>
+
 
 <?php
 // 如果有get到sid 就get到的sid 沒有get到就變0
@@ -26,6 +26,8 @@ if (empty($row)) {
 ?>
 
 <?php require __DIR__ . '../../parts/__html_head.php'; ?>
+<link rel="stylesheet" href="../product_css/edit.css">
+<?php include __DIR__ . '../../parts/__navbar.php'; ?>
 
 <style>
     span.red-stars {
@@ -38,14 +40,14 @@ if (empty($row)) {
 
 
 
-    <div class="container">
-        <div class="row" style="padding-left: 100px">
-            <div class="">
-                <div id="infobar" class="alert alert-success" role="alert" style="display: none">
-                    A simple success alert—check it out!
-                </div>
-                    <div class="card-body" style="width: 40rem">
-                    <div class="card-body">
+    <di<div class="concon">
+    <div class="row">
+        <div class="col">
+            <div id="infobar" class="alert alert-success" role="alert" style="display: none">
+                A simple success alert—check it out!
+            </div>
+            <div class="card tomid">
+                <div class="card-body">
                         <h5 class="card-title">修改資料</h5>
 
                         <form name="form1" onsubmit="checkForm(); return false;" novalidate>
@@ -120,7 +122,7 @@ if (empty($row)) {
             if ($vendor_name.value.length < 2) {
                 isPass = false;
                 $vendor_name.style.borderColor = 'red';
-                $vendor_name.nextElementSibling.innerHTML = '請填寫正確的公司名稱';
+                $vendor_name.nextElementSibling.innerHTML = '請填寫正確的廠商名稱';
             }
             if(! email_pattern.test($email.value)) {
                 isPass = false;
@@ -146,14 +148,14 @@ if (empty($row)) {
                 // 使用formdata把 form做成表單
                 const fd = new FormData(document.form1);
 
-                fetch('vendor-insert-api.php', {
+                fetch('vendor-edit-api.php', {
                     method: 'POST',
                     body: fd
                 })
                     .then(r => r.json())
                     .then(obj => {
                         if (obj.success) {
-                            infobar.innerHTML = '新增成功';
+                            infobar.innerHTML = '修改成功';
                             infobar.className = "alert alert-success";
                             //if(infobar.classList.contains('alert-danger')){
                             //infobar.classList.replace('alert-danger', 'alert-success')
@@ -162,7 +164,7 @@ if (empty($row)) {
                                 window.history.back();
                             }, 3000)
                         } else {
-                            infobar.innerHTML = obj.error || '新增失敗';
+                            infobar.innerHTML = obj.error || '修改失敗';
                             infobar.className = "alert alert-danger";
                             // if(infobar.classList.contains('alert-success')){
                             //     infobar.classList.replace('alert-success', 'alert-danger')

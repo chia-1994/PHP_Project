@@ -13,7 +13,7 @@ $output = [
 //INSERT INTO `vendor-list`(`sid`, `vendor_name`, `address`, `TEL`, `email`, `tax_ID_number`,
 if (mb_strlen($_POST['vendor_name']) < 2) {
     $output['code'] = 401;
-    $output['error'] = '產品名稱長度要大於 2';
+    $output['error'] = '廠商名稱長度要大於 2';
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;
 }

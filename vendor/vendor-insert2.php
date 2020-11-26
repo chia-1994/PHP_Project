@@ -5,6 +5,8 @@ $page_name = 'vendor-insert2';
 require __DIR__ . '/connect_db.php';
 ?>
 <?php require __DIR__ . '../../parts/__html_head.php'; ?>
+    <link rel="stylesheet" href="../product_css/insert.css">
+<?php include __DIR__ . '../../parts/__navbar.php'; ?>
     <style>
 
         span.red-stars {
@@ -16,15 +18,14 @@ require __DIR__ . '/connect_db.php';
     </style>
 
 
-<?php include __DIR__ . '../../parts/__navbar.php'; ?>
-<div class="container">
-    <div class="row" style="padding-left: 200px">
+<div class="concon">
+    <div class="row">
         <div class="col">
             <div id="infobar" class="alert alert-success" role="alert" style="display: none">
                 A simple success alert—check it out!
             </div>
-            <div class="card">
-                <div class="card-body" style="width: 40rem">
+            <div class="card tomid">
+                <div class="card-body">
                     <h5 class="card-title">新增資料</h5>
 
                     <form name="form1" onsubmit="checkForm(); return false;" novalidate>

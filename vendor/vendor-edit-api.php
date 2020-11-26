@@ -17,9 +17,9 @@ if (empty($_POST['sid'])) {
     exit;
 }
 // 檢查 產品名稱
-if (mb_strlen($_POST['name']) < 2) {
+if (mb_strlen($_POST['vendor_name']) < 2) {
     $output['code'] = 401;
-    $output['error'] = '產品名稱長度要大於 2';
+    $output['error'] = '廠商名稱長度要大於 2';
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit;
 }
@@ -45,13 +45,13 @@ if (!preg_match('/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,
 //}
 // `sid`, `name`, `price`, `MD`, `expried`, `firm`SELECT * FROM `shop_list` WHERE 1
 // 如檢查格式無誤 使用mysql語法 寫入資料庫
-$sql = "UPDATE `vendor-list` SET 
+$sql = "UPDATE `vendor-list` SET
     `vendor_name`=?,
     `address`=?,
     `TEL`=?,
     `email`=?,
     `tax_ID_number`=?,
-    `contact_person`=?,
+    `contact_person`=?
     WHERE `sid`=?";
 
 $stmt = $pdo->prepare($sql);
@@ -62,6 +62,7 @@ $stmt->execute([
     $_POST['email'],
     $_POST['tax_ID_number'],
     $_POST['contact_person'],
+    $_POST['sid'],
 ]);
 // 回傳一個成功 主要是用來控制 對話框的樣式 如果回傳成功 會跳出 新增成功(把display:none 改成 block)
 if ($stmt->rowCount()) {
